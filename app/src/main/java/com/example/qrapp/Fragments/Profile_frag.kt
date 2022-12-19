@@ -24,9 +24,9 @@ class Profile_frag : Fragment() {
     private val fromTop: Animation by lazy { AnimationUtils.loadAnimation(activity,R.anim.fromtop_anim) }
     private val toTop: Animation by lazy { AnimationUtils.loadAnimation(activity,R.anim.totop_anim) }
 
-    private var dropBelowButton = view
-    private var logOut_fab = view
-    private var to_edit_mode =view
+    private lateinit var dropBelowButton : Button
+    private lateinit var logOut_fab : Button
+    private lateinit var to_edit_mode : Button
 
     private lateinit var mAuth:FirebaseAuth
 
@@ -38,9 +38,9 @@ class Profile_frag : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.fragment_profile_frag, container, false)
-        dropBelowButton = view.findViewById<Button>(R.id.three_dot_fab)
-        logOut_fab = view.findViewById<Button>(R.id.log_out_fab)
-        to_edit_mode = view.findViewById<Button>(R.id.to_edit_mode_btn)
+        dropBelowButton = view.findViewById(R.id.three_dot_fab)
+        logOut_fab = view.findViewById(R.id.log_out_fab)
+        to_edit_mode = view.findViewById(R.id.to_edit_mode_btn)
 
         mAuth = FirebaseAuth.getInstance()
 
