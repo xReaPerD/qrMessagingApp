@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/chat_time_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="32dp"-->
+        <!--            android:layout_marginEnd="24dp"-->
+        <!--            android:text="time_show"-->
+        <!--            android:textColor="@color/ocean_blue"-->
+        <!--            android:textSize="13sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:id="@+id/person_id_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="128dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="17sp"
+
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="36dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/person_id_tv"
+            app:layout_constraintStart_toStartOf="@+id/person_prof_pic_img"
+            app:layout_constraintTop_toTopOf="@+id/person_id_tv"></androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/person_prof_pic_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-8dp"
+            tools:layout_editor_absoluteY="15dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
