@@ -58,7 +58,7 @@ class MessageActivity : AppCompatActivity() {
         chatRecyclerView.adapter = messageAdapter
 
         back_btn.setOnClickListener {
-            val backToMainPage = Intent(this,chat_main_frag::class.java)
+            val backToMainPage = Intent(this,MainChatPage::class.java)
             startActivity(backToMainPage)
         }
 
