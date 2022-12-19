@@ -1,15 +1,15 @@
 package com.example.qrapp.Adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.DataFile.User
-import com.example.qrapp.Fragments.Contact_frag
 import com.example.qrapp.R
 
-class Contact_RecyclerView(context: Contact_frag, val userList: ArrayList<User>):RecyclerView.Adapter<Contact_RecyclerView.MyViewHolder>() {
+class Contact_RecyclerView(val context: Context?, val userList: ArrayList<User>):RecyclerView.Adapter<Contact_RecyclerView.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
