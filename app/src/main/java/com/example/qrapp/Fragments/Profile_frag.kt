@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.example.qrapp.MainActivity
 import com.example.qrapp.Profile_edit
@@ -28,6 +29,10 @@ class Profile_frag : Fragment() {
     private lateinit var logOut_fab : Button
     private lateinit var to_edit_mode : Button
 
+    private lateinit var title_name : TextView
+    private lateinit var username_tv : TextView
+    private lateinit var email_tv : TextView
+
     private lateinit var mAuth:FirebaseAuth
 
     private var clicked = false
@@ -41,6 +46,10 @@ class Profile_frag : Fragment() {
         dropBelowButton = view.findViewById(R.id.three_dot_fab)
         logOut_fab = view.findViewById(R.id.log_out_fab)
         to_edit_mode = view.findViewById(R.id.to_edit_mode_btn)
+
+        title_name = view.findViewById(R.id.username_title_tv)
+        username_tv = view.findViewById(R.id.username_name_tv)
+        email_tv = view.findViewById(R.id.email_tt_name_tv)
 
         mAuth = FirebaseAuth.getInstance()
 
