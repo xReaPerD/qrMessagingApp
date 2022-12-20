@@ -49,9 +49,17 @@ class Profile_frag : Fragment() {
 
         title_name = view.findViewById(R.id.username_title_tv)
         username_tv = view.findViewById(R.id.username_name_tv)
-        email_tv = view.findViewById(R.id.email_tt_name_tv)
+        email_tv = view.findViewById(R.id.user_email_tv)
 
         mAuth = FirebaseAuth.getInstance()
+
+        val name = activity?.intent?.getStringExtra("name")
+        val username = activity?.intent?.getStringExtra("username")
+        val email = activity?.intent?.getStringExtra("email")
+
+        title_name.text = name
+        username_tv.text = username
+        email_tv.text = email
 
         val move_to_edit_mode = Intent(activity,Profile_edit::class.java)
 

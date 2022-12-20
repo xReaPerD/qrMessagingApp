@@ -1,12 +1,15 @@
 package com.example.qrapp.Adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.DataFile.User
+import com.example.qrapp.Fragments.Profile_frag
 import com.example.qrapp.R
 
 class Contact_RecyclerView(val context: Context?, val userList: ArrayList<User>):RecyclerView.Adapter<Contact_RecyclerView.MyViewHolder>() {
@@ -22,6 +25,15 @@ class Contact_RecyclerView(val context: Context?, val userList: ArrayList<User>)
         val currentUser = userList[position]
 
         holder.personName.text = currentUser.name
+
+        val bundle= Bundle()
+        bundle.putString("name",currentUser.name)
+        bundle.putString("username",currentUser.username)
+        bundle.putString("email",currentUser.email)
+
+        //transaction......frag
+
+
     }
 
     override fun getItemCount(): Int {
