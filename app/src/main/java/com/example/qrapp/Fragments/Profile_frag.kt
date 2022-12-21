@@ -13,11 +13,14 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.qrapp.DataFile.MessageFile
+import com.example.qrapp.DataFile.User
 import com.example.qrapp.MainActivity
 import com.example.qrapp.Profile_edit
 import com.example.qrapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 
 class Profile_frag : Fragment() {
@@ -34,6 +37,7 @@ class Profile_frag : Fragment() {
     private lateinit var email_tv : TextView
 
     private lateinit var mAuth:FirebaseAuth
+    private lateinit var dbRef: DatabaseReference
 
     private var clicked = false
 
@@ -52,15 +56,36 @@ class Profile_frag : Fragment() {
         email_tv = view.findViewById(R.id.user_email_tv)
 
         mAuth = FirebaseAuth.getInstance()
+        dbRef = FirebaseDatabase.getInstance().getReference()
 
-        val name = activity?.intent?.getStringExtra("name")
-        val username = activity?.intent?.getStringExtra("username")
-        val email = activity?.intent?.getStringExtra("email")
+        dbRef.child("Users").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (postSnapShot in snapshot.children){
+                    val currentUsers = postSnapShot.getValue(User::class.java)
+                    if(mAuth.currentUser?.uid == currentUsers?.uid) {
+                        title_name.text = currentUsers?.name
+                        username_tv.text = currentUsers?.username
+                        email_tv.text = currentUsers?.email
+                    }
 
-        title_name.text = name
-        username_tv.text = username
-        email_tv.text = email
+                }
+            }
 
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+        //transaction
+//        val name = arguments?.getString("name").toString()
+//        val username = arguments?.getString("username").toString()
+//        val email = arguments?.getString("email").toString()
+//
+//        title_name.text = name
+//        username_tv.setText(username)
+//        email_tv.setText(email)
+
+    //``````````
         val move_to_edit_mode = Intent(activity,Profile_edit::class.java)
 
         (dropBelowButton as Button?)?.setOnClickListener {

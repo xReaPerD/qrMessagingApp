@@ -26,14 +26,6 @@ class Contact_RecyclerView(val context: Context?, val userList: ArrayList<User>)
 
         holder.personName.text = currentUser.name
 
-        val bundle= Bundle()
-        bundle.putString("name",currentUser.name)
-        bundle.putString("username",currentUser.username)
-        bundle.putString("email",currentUser.email)
-
-        //transaction......frag
-
-
     }
 
     override fun getItemCount(): Int {
