@@ -76,16 +76,7 @@ class Profile_frag : Fragment() {
             }
 
         })
-        //transaction
-//        val name = arguments?.getString("name").toString()
-//        val username = arguments?.getString("username").toString()
-//        val email = arguments?.getString("email").toString()
-//
-//        title_name.text = name
-//        username_tv.setText(username)
-//        email_tv.setText(email)
 
-    //``````````
         val move_to_edit_mode = Intent(activity,Profile_edit::class.java)
 
         (dropBelowButton as Button?)?.setOnClickListener {
