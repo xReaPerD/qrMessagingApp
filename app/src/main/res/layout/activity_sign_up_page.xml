@@ -11,8 +11,8 @@
 
     <Button
         android:id="@+id/return_btn"
-        android:layout_width="50dp"
-        android:layout_height="52dp"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:drawableStart="@drawable/arrow_back_ios_24"
