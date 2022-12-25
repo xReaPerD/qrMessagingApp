@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.qrapp.DataFile.User
 import com.google.firebase.auth.FirebaseAuth
@@ -37,8 +38,9 @@ class SignUpPage : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
 
-        val animLeft = AnimationUtils.loadAnimation(this,R.anim.left_anim)
+//        val animLeft = AnimationUtils.loadAnimation(this,R.anim.left_anim)
         val animBottom = AnimationUtils.loadAnimation(this,R.anim.bottom_anim)
+        val animTop  = AnimationUtils.loadAnimation(this,R.anim.top_anim)
 
         val back_btn = findViewById<Button>(R.id.return_btn)
         val regis_tv = findViewById<TextView>(R.id.regis_tv)
@@ -50,6 +52,9 @@ class SignUpPage : AppCompatActivity() {
         val upassCon = findViewById<EditText>(R.id.UpassConfirm_et)
         val cont_btn = findViewById<Button>(R.id.continue_btn)
 
+        val prof_box = findViewById<CardView>(R.id.cardView3)
+        val prof_drop = findViewById<ImageView>(R.id.profile_drop)
+
         //error textView
         errorName = findViewById(R.id.nameCheck_tv)
         errorUname = findViewById(R.id.checkUsername)
@@ -57,15 +62,17 @@ class SignUpPage : AppCompatActivity() {
         errorPass = findViewById(R.id.checkPass)
         errorConPass = findViewById(R.id.checkConPass)
 
-        back_btn.startAnimation(animLeft)
-        regis_tv.startAnimation(animLeft)
-        sign_up_container_img.startAnimation(animBottom)
+        back_btn.startAnimation(animTop)
+        regis_tv.startAnimation(animTop)
+        sign_up_container_img.startAnimation(animTop)
         name_et.startAnimation(animBottom)
         uname_et.startAnimation(animBottom)
         uemail_et.startAnimation(animBottom)
         upass.startAnimation(animBottom)
         upassCon.startAnimation(animBottom)
         cont_btn.startAnimation(animBottom)
+
+        prof_box.startAnimation(animTop)
 
         val returnHome = Intent(this,MainActivity::class.java)
         back_btn.setOnClickListener {
