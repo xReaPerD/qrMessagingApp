@@ -16,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/return_btn"
         android:layout_width="50dp"
@@ -54,12 +55,15 @@
         app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
         app:layout_constraintTop_toTopOf="@+id/signUn_box_img" >
 
-        <ImageView
-            android:id="@+id/profile_drop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            <ImageView
+                android:id="@+id/profile_drop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
     </androidx.cardview.widget.CardView>
+
+
 
     <EditText
         android:id="@+id/name_et"
@@ -206,6 +210,18 @@
         app:layout_constraintEnd_toEndOf="@+id/UpassConfirm_et"
         app:layout_constraintStart_toStartOf="@+id/UpassConfirm_et"
         app:layout_constraintTop_toBottomOf="@+id/UpassConfirm_et" />
+
+    <Button
+        android:id="@+id/addImg_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/add_24"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="@+id/name_et"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="@+id/cardView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

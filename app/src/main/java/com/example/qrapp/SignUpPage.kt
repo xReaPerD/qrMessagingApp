@@ -29,6 +29,7 @@ class SignUpPage : AppCompatActivity() {
     private lateinit var errorEmail:TextView
     private lateinit var errorPass:TextView
     private lateinit var errorConPass:TextView
+    private lateinit var addImg:Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +55,7 @@ class SignUpPage : AppCompatActivity() {
 
         val prof_box = findViewById<CardView>(R.id.cardView3)
         val prof_drop = findViewById<ImageView>(R.id.profile_drop)
+        addImg = findViewById(R.id.addImg_btn)
 
         //error textView
         errorName = findViewById(R.id.nameCheck_tv)
@@ -65,14 +67,19 @@ class SignUpPage : AppCompatActivity() {
         back_btn.startAnimation(animTop)
         regis_tv.startAnimation(animTop)
         sign_up_container_img.startAnimation(animTop)
-        name_et.startAnimation(animBottom)
-        uname_et.startAnimation(animBottom)
-        uemail_et.startAnimation(animBottom)
-        upass.startAnimation(animBottom)
-        upassCon.startAnimation(animBottom)
+//        name_et.startAnimation(animBottom)
+//        uname_et.startAnimation(animBottom)
+//        uemail_et.startAnimation(animBottom)
+//        upass.startAnimation(animBottom)
+//        upassCon.startAnimation(animBottom)
         cont_btn.startAnimation(animBottom)
 
         prof_box.startAnimation(animTop)
+        addImg.startAnimation(animTop)
+
+        addImg.setOnClickListener {
+            Toast.makeText(this,"Add Image",Toast.LENGTH_SHORT).show()
+        }
 
         val returnHome = Intent(this,MainActivity::class.java)
         back_btn.setOnClickListener {
