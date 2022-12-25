@@ -36,11 +36,6 @@ class SignUpPage : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val signUp_background = findViewById<ConstraintLayout>(R.id.signUp_back_ct)
-        val animateBackground:AnimationDrawable = signUp_background.background as AnimationDrawable
-        animateBackground.setEnterFadeDuration(1500)
-        animateBackground.setExitFadeDuration(1000)
-        animateBackground.start()
 
         val animLeft = AnimationUtils.loadAnimation(this,R.anim.left_anim)
         val animBottom = AnimationUtils.loadAnimation(this,R.anim.bottom_anim)

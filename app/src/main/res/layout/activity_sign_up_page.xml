@@ -4,15 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grad_back"
+    android:background="@color/ocean_blue"
     tools:context=".SignUpPage"
     android:id="@+id/signUp_back_ct"
     >
-
+    <ImageView
+        android:id="@+id/signUn_box_img"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@drawable/top_box_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/return_btn"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:drawableStart="@drawable/arrow_back_ios_24"
@@ -24,51 +31,49 @@
     <TextView
         android:id="@+id/regis_tv"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Register"
         android:textColor="@color/black"
-        android:textSize="45sp"
+        android:textSize="40sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/return_btn" />
 
-    <Space
-        android:id="@+id/space"
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_tv" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="152dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/signUn_box_img"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
+        app:layout_constraintTop_toTopOf="@+id/signUn_box_img" >
 
-    <ImageView
-        android:id="@+id/signUn_box_img"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/box_round_edge_container_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space"
-        app:layout_constraintVertical_bias="1.0" />
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </androidx.cardview.widget.CardView>
 
     <EditText
         android:id="@+id/name_et"
-        android:drawableLeft="@drawable/uname_person_24"
         android:layout_width="250dp"
         android:layout_height="55dp"
-        android:layout_marginTop="25dp"
         android:background="@drawable/et_box_design"
-        android:hint="Name"
+        android:drawableLeft="@drawable/uname_person_24"
         android:drawablePadding="10dp"
+        android:hint="Name"
         android:paddingLeft="5dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="@+id/signUn_box_img"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
-        app:layout_constraintTop_toBottomOf="@+id/space" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
     <TextView
         android:id="@+id/checkEmail_tv"
