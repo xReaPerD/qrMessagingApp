@@ -88,6 +88,7 @@
             app:layout_constraintTop_toBottomOf="@+id/username_title_tv">
 
             <ImageView
+                android:id="@+id/C_user_prof_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </androidx.cardview.widget.CardView>

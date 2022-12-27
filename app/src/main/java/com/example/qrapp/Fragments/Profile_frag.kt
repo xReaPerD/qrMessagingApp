@@ -11,8 +11,10 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.MessageFile
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.MainActivity
@@ -21,6 +23,7 @@ import com.example.qrapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 
 
 class Profile_frag : Fragment() {
@@ -35,9 +38,11 @@ class Profile_frag : Fragment() {
     private lateinit var title_name : TextView
     private lateinit var username_tv : TextView
     private lateinit var email_tv : TextView
+    private lateinit var userProf : ImageView
 
     private lateinit var mAuth:FirebaseAuth
     private lateinit var dbRef: DatabaseReference
+    private lateinit var mStorage: FirebaseStorage
 
     private var clicked = false
 
@@ -54,9 +59,14 @@ class Profile_frag : Fragment() {
         title_name = view.findViewById(R.id.username_title_tv)
         username_tv = view.findViewById(R.id.username_name_tv)
         email_tv = view.findViewById(R.id.user_email_tv)
+        userProf = view.findViewById(R.id.C_user_prof_img)
 
         mAuth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance().getReference()
+        mStorage = FirebaseStorage.getInstance()
+
+        val imgDataReference = FirebaseDatabase.getInstance().getReference("Users")
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
         dbRef.child("Users").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -66,6 +76,8 @@ class Profile_frag : Fragment() {
                         title_name.text = currentUsers?.name
                         username_tv.text = currentUsers?.username
                         email_tv.text = currentUsers?.email
+
+
                     }
 
                 }
@@ -76,6 +88,12 @@ class Profile_frag : Fragment() {
             }
 
         })
+
+        imgDataReference.child(userId).get()
+            .addOnSuccessListener {
+                val url = it.child("userImg").value.toString()
+                Glide.with(this).load(url).into(userProf)
+        }
 
         val move_to_edit_mode = Intent(activity,Profile_edit::class.java)
 

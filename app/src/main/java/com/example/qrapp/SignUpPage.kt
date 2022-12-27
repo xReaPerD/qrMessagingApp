@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
@@ -134,8 +135,16 @@ class SignUpPage : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,userImg = selectedImg.toString())
-                    uploadImage()
+                    val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
+                    reference.putFile(selectedImg).addOnCompleteListener {
+                        if (it.isSuccessful){
+                            reference.downloadUrl.addOnSuccessListener { task ->
+                                uploadInfo(task.toString())
+                                addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,task.toString())
+                            }
+                        }
+                    }
+
                     val to_signIn_con = Intent(this,Con_signUp_Page::class.java)
                     startActivity(to_signIn_con)
                     finish()
@@ -162,20 +171,21 @@ class SignUpPage : AppCompatActivity() {
         startActivityForResult(intent,1)
     }
 
-    private fun uploadImage(){
-        val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
-        reference.putFile(selectedImg).addOnCompleteListener {
-            if (it.isSuccessful){
-                reference.downloadUrl.addOnSuccessListener { task ->
-                    uploadInfo(task.toString())
-
-                }
-            }
-        }
-    }
+//    private fun uploadImage(){
+//        val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
+//        reference.putFile(selectedImg).addOnCompleteListener {
+//            if (it.isSuccessful){
+//                reference.downloadUrl.addOnSuccessListener { task ->
+//                    uploadInfo(task.toString())
+//
+//                }
+//            }
+//        }
+//    }
 
     private fun uploadInfo(userImg: String) {
         User(name_et.text.toString(),uname_et.text.toString(),uemail_et.text.toString(),mAuth.currentUser?.uid,userImg) //to be looked into
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
