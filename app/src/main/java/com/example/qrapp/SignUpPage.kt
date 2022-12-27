@@ -1,7 +1,7 @@
 package com.example.qrapp
 
 import android.content.Intent
-import android.graphics.drawable.AnimationDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AnimationUtils
@@ -11,7 +11,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.qrapp.DataFile.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -23,6 +22,7 @@ class SignUpPage : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var dbRef : DatabaseReference
     private lateinit var mStorage : FirebaseStorage
+    private lateinit var selectedImg : Uri
 
     private lateinit var uemail_et:EditText
     private lateinit var upass:EditText
@@ -32,6 +32,7 @@ class SignUpPage : AppCompatActivity() {
     private lateinit var errorPass:TextView
     private lateinit var errorConPass:TextView
     private lateinit var addImg:Button
+    private lateinit var prof_drop : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +58,7 @@ class SignUpPage : AppCompatActivity() {
         val cont_btn = findViewById<Button>(R.id.continue_btn)
 
         val prof_box = findViewById<CardView>(R.id.cardView3)
-        val prof_drop = findViewById<ImageView>(R.id.profile_drop)
+        prof_drop = findViewById(R.id.profile_drop)
         addImg = findViewById(R.id.addImg_btn)
 
         //error textView
@@ -154,6 +155,20 @@ class SignUpPage : AppCompatActivity() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
-        startActivity(intent)
+        startActivityForResult(intent,1)
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (data != null){
+            if (data.data != null){
+                selectedImg = data.data!!
+                prof_drop.setImageURI(selectedImg)
+
+            }
+        }
+    }
+
+
 }
