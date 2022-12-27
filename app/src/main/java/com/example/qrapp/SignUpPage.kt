@@ -16,11 +16,13 @@ import com.example.qrapp.DataFile.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 class SignUpPage : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var dbRef : DatabaseReference
+    private lateinit var mStorage : FirebaseStorage
 
     private lateinit var uemail_et:EditText
     private lateinit var upass:EditText
@@ -37,6 +39,7 @@ class SignUpPage : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up_page)
 
         mAuth = FirebaseAuth.getInstance()
+        mStorage = FirebaseStorage.getInstance()
 
 
 //        val animLeft = AnimationUtils.loadAnimation(this,R.anim.left_anim)
@@ -79,6 +82,7 @@ class SignUpPage : AppCompatActivity() {
 
         addImg.setOnClickListener {
             Toast.makeText(this,"Add Image",Toast.LENGTH_SHORT).show()
+            selectImage()
         }
 
         val returnHome = Intent(this,MainActivity::class.java)
@@ -144,5 +148,12 @@ class SignUpPage : AppCompatActivity() {
         //child is used to create node (Note to myself)
         dbRef.child("Users").child(uid).setValue(User(name,username,email,uid))
 
+    }
+
+    private fun selectImage(){
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        startActivity(intent)
     }
 }
