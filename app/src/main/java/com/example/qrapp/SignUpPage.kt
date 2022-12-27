@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import java.util.Date
 
 class SignUpPage : AppCompatActivity() {
 
@@ -26,6 +27,8 @@ class SignUpPage : AppCompatActivity() {
 
     private lateinit var uemail_et:EditText
     private lateinit var upass:EditText
+    private lateinit var name_et:EditText
+    private lateinit var uname_et:EditText
     private lateinit var errorName:TextView
     private lateinit var errorUname:TextView
     private lateinit var errorEmail:TextView
@@ -50,8 +53,8 @@ class SignUpPage : AppCompatActivity() {
         val back_btn = findViewById<Button>(R.id.return_btn)
         val regis_tv = findViewById<TextView>(R.id.regis_tv)
         val sign_up_container_img = findViewById<ImageView>(R.id.signUn_box_img)
-        val name_et = findViewById<EditText>(R.id.name_et)
-        val uname_et = findViewById<EditText>(R.id.Uname_et)
+        name_et = findViewById(R.id.name_et)
+        uname_et = findViewById(R.id.Uname_et)
         uemail_et = findViewById(R.id.Uemail_et)
         upass = findViewById(R.id.Upass_et)
         val upassCon = findViewById<EditText>(R.id.UpassConfirm_et)
@@ -131,7 +134,8 @@ class SignUpPage : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!)
+                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,userImg = selectedImg.toString())
+                    uploadImage()
                     val to_signIn_con = Intent(this,Con_signUp_Page::class.java)
                     startActivity(to_signIn_con)
                     finish()
@@ -143,11 +147,11 @@ class SignUpPage : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDatabase(name: String, username: String, email: String, uid: String) {
+    private fun addUserToDatabase(name: String, username: String, email: String, uid: String, userImg: String?) {
         dbRef = FirebaseDatabase.getInstance().getReference()
 
         //child is used to create node (Note to myself)
-        dbRef.child("Users").child(uid).setValue(User(name,username,email,uid))
+        dbRef.child("Users").child(uid).setValue(User(name,username,email,uid,userImg))
 
     }
 
@@ -156,6 +160,22 @@ class SignUpPage : AppCompatActivity() {
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
         startActivityForResult(intent,1)
+    }
+
+    private fun uploadImage(){
+        val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
+        reference.putFile(selectedImg).addOnCompleteListener {
+            if (it.isSuccessful){
+                reference.downloadUrl.addOnSuccessListener { task ->
+                    uploadInfo(task.toString())
+
+                }
+            }
+        }
+    }
+
+    private fun uploadInfo(userImg: String) {
+        User(name_et.text.toString(),uname_et.text.toString(),uemail_et.text.toString(),mAuth.currentUser?.uid,userImg) //to be looked into
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
