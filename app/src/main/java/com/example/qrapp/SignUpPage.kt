@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
@@ -47,7 +46,7 @@ class SignUpPage : AppCompatActivity() {
         mStorage = FirebaseStorage.getInstance()
 
 
-//        val animLeft = AnimationUtils.loadAnimation(this,R.anim.left_anim)
+
         val animBottom = AnimationUtils.loadAnimation(this,R.anim.bottom_anim)
         val animTop  = AnimationUtils.loadAnimation(this,R.anim.top_anim)
 
@@ -75,11 +74,7 @@ class SignUpPage : AppCompatActivity() {
         back_btn.startAnimation(animTop)
         regis_tv.startAnimation(animTop)
         sign_up_container_img.startAnimation(animTop)
-//        name_et.startAnimation(animBottom)
-//        uname_et.startAnimation(animBottom)
-//        uemail_et.startAnimation(animBottom)
-//        upass.startAnimation(animBottom)
-//        upassCon.startAnimation(animBottom)
+
         cont_btn.startAnimation(animBottom)
 
         prof_box.startAnimation(animTop)
@@ -111,7 +106,9 @@ class SignUpPage : AppCompatActivity() {
                 errorUname.setText("*This Field Cannot be Left Empty")}
             if(userEmail.isEmpty()){
                 errorEmail.setText("*Enter your Email")}
-
+            if(prof_drop.drawable == null){
+                   Toast.makeText(this,"Insert profile picture",Toast.LENGTH_SHORT).show()
+            }
             if(pass.isEmpty() && userConPass.isEmpty()){
                 errorPass.setText("*Enter Password")
                 errorConPass.setText("*Enter Password for Confirmation")
@@ -170,18 +167,6 @@ class SignUpPage : AppCompatActivity() {
         intent.type = "image/*"
         startActivityForResult(intent,1)
     }
-
-//    private fun uploadImage(){
-//        val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
-//        reference.putFile(selectedImg).addOnCompleteListener {
-//            if (it.isSuccessful){
-//                reference.downloadUrl.addOnSuccessListener { task ->
-//                    uploadInfo(task.toString())
-//
-//                }
-//            }
-//        }
-//    }
 
     private fun uploadInfo(userImg: String) {
         User(name_et.text.toString(),uname_et.text.toString(),uemail_et.text.toString(),mAuth.currentUser?.uid,userImg) //to be looked into
