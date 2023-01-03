@@ -8,220 +8,237 @@
     tools:context=".SignUpPage"
     android:id="@+id/signUp_back_ct"
     >
-    <ImageView
-        android:id="@+id/signUn_box_img"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:background="@drawable/top_box_container"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/return_btn"
-        android:layout_width="50dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:drawableStart="@drawable/arrow_back_ios_24"
-        android:paddingLeft="18dp"
-        android:background="@drawable/log_back_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/regis_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Register"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/return_btn" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="152dp"
-        app:cardCornerRadius="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/signUn_box_img"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
-        app:layout_constraintTop_toTopOf="@+id/signUn_box_img" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/profile_drop"
+                android:id="@+id/signUn_box_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+                android:layout_height="210dp"
+                android:background="@drawable/top_box_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+            <Button
+                android:id="@+id/return_btn"
+                android:layout_width="50dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/arrow_back_ios_24"
+                android:paddingLeft="18dp"
+                android:background="@drawable/log_back_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/regis_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/cardView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/return_btn" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="152dp"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/signUn_box_img"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
+                app:layout_constraintTop_toTopOf="@+id/signUn_box_img" >
+
+                <ImageView
+                    android:id="@+id/profile_drop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </androidx.cardview.widget.CardView>
 
 
 
-    <EditText
-        android:id="@+id/name_et"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:background="@drawable/et_box_design"
-        android:drawableLeft="@drawable/uname_person_24"
-        android:drawablePadding="10dp"
-        android:hint="Name"
-        android:paddingLeft="5dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="@+id/signUn_box_img"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+            <EditText
+                android:id="@+id/name_et"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:background="@drawable/et_box_design"
+                android:drawableLeft="@drawable/uname_person_24"
+                android:drawablePadding="10dp"
+                android:hint="Name"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/signUn_box_img"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/signUn_box_img"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
-    <TextView
-        android:id="@+id/checkEmail_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:paddingBottom="8dp"
-        android:textColor="@color/red"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/Uemail_et"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="@+id/Uemail_et"
-        app:layout_constraintTop_toBottomOf="@+id/Uemail_et" />
+            <TextView
+                android:id="@+id/checkEmail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:paddingBottom="8dp"
+                android:textColor="@color/red"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/Uemail_et"
+                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintStart_toStartOf="@+id/Uemail_et"
+                app:layout_constraintTop_toBottomOf="@+id/Uemail_et" />
 
-    <EditText
-        android:id="@+id/Uname_et"
-        android:drawableLeft="@drawable/uname_person_24"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/et_box_design"
-        android:hint="Username"
-        android:drawablePadding="10dp"
-        android:paddingLeft="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/name_et"
-        app:layout_constraintTop_toBottomOf="@+id/name_et" />
+            <EditText
+                android:id="@+id/Uname_et"
+                android:drawableLeft="@drawable/uname_person_24"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/et_box_design"
+                android:hint="Username"
+                android:drawablePadding="10dp"
+                android:paddingLeft="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/name_et"
+                app:layout_constraintTop_toBottomOf="@+id/name_et" />
 
-    <TextView
-        android:id="@+id/nameCheck_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/name_et"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="@+id/name_et"
-        app:layout_constraintTop_toBottomOf="@+id/name_et" />
+            <TextView
+                android:id="@+id/nameCheck_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/name_et"
+                app:layout_constraintHorizontal_bias="0.072"
+                app:layout_constraintStart_toStartOf="@+id/name_et"
+                app:layout_constraintTop_toBottomOf="@+id/name_et" />
 
-    <EditText
-        android:id="@+id/Uemail_et"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/et_box_design"
-        android:drawableLeft="@drawable/email_24_box"
-        android:hint="Email"
-        android:drawablePadding="10dp"
-        android:paddingLeft="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/Uname_et"
-        app:layout_constraintTop_toBottomOf="@+id/Uname_et" />
+            <EditText
+                android:id="@+id/Uemail_et"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/et_box_design"
+                android:drawableLeft="@drawable/email_24_box"
+                android:hint="Email"
+                android:drawablePadding="10dp"
+                android:paddingLeft="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/Uname_et"
+                app:layout_constraintTop_toBottomOf="@+id/Uname_et" />
 
-    <TextView
-        android:id="@+id/checkUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/Uname_et"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="@+id/Uname_et"
-        app:layout_constraintTop_toBottomOf="@+id/Uname_et" />
+            <TextView
+                android:id="@+id/checkUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/Uname_et"
+                app:layout_constraintHorizontal_bias="0.072"
+                app:layout_constraintStart_toStartOf="@+id/Uname_et"
+                app:layout_constraintTop_toBottomOf="@+id/Uname_et" />
 
-    <EditText
-        android:id="@+id/Upass_et"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/et_box_design"
-        android:drawableLeft="@drawable/lock_24_box"
-        android:hint="Password (minimum 6)"
-        android:inputType="textPassword"
-        android:drawablePadding="10dp"
-        android:paddingLeft="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/Uemail_et"
-        app:layout_constraintTop_toBottomOf="@+id/Uemail_et" />
+            <EditText
+                android:id="@+id/Upass_et"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/et_box_design"
+                android:drawableLeft="@drawable/lock_24_box"
+                android:hint="Password (minimum 6)"
+                android:inputType="textPassword"
+                android:drawablePadding="10dp"
+                android:paddingLeft="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/Uemail_et"
+                app:layout_constraintTop_toBottomOf="@+id/Uemail_et" />
 
-    <TextView
-        android:id="@+id/checkPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="15sp"
-        android:paddingBottom="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/Upass_et"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="@+id/Upass_et"
-        app:layout_constraintTop_toBottomOf="@+id/Upass_et" />
+            <TextView
+                android:id="@+id/checkPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="15sp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/Upass_et"
+                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintStart_toStartOf="@+id/Upass_et"
+                app:layout_constraintTop_toBottomOf="@+id/Upass_et" />
 
-    <EditText
-        android:id="@+id/UpassConfirm_et"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/et_box_design"
-        android:drawableLeft="@drawable/lock_24_box"
-        android:hint="Password Confirm"
-        android:inputType="textPassword"
-        android:drawablePadding="10dp"
-        android:paddingLeft="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/Upass_et"
-        app:layout_constraintTop_toBottomOf="@+id/Upass_et" />
+            <EditText
+                android:id="@+id/UpassConfirm_et"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/et_box_design"
+                android:drawableLeft="@drawable/lock_24_box"
+                android:hint="Password Confirm"
+                android:inputType="textPassword"
+                android:drawablePadding="10dp"
+                android:paddingLeft="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/Upass_et"
+                app:layout_constraintTop_toBottomOf="@+id/Upass_et" />
 
-    <TextView
-        android:id="@+id/checkConPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/UpassConfirm_et"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="@+id/UpassConfirm_et"
-        app:layout_constraintTop_toBottomOf="@+id/UpassConfirm_et" />
+            <TextView
+                android:id="@+id/checkConPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/UpassConfirm_et"
+                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintStart_toStartOf="@+id/UpassConfirm_et"
+                app:layout_constraintTop_toBottomOf="@+id/UpassConfirm_et" />
 
-    <Button
-        android:id="@+id/continue_btn"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/btn_shape"
-        android:text="Continue"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/UpassConfirm_et"
-        app:layout_constraintStart_toStartOf="@+id/UpassConfirm_et"
-        app:layout_constraintTop_toBottomOf="@+id/UpassConfirm_et" />
+            <Button
+                android:id="@+id/continue_btn"
+                android:layout_width="200dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/btn_shape"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/UpassConfirm_et"
+                app:layout_constraintStart_toStartOf="@+id/UpassConfirm_et"
+                app:layout_constraintTop_toBottomOf="@+id/UpassConfirm_et" />
 
-    <Button
-        android:id="@+id/addImg_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/add_24"
-        android:layout_marginLeft="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="@+id/name_et"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="@+id/cardView3" />
+            <Button
+                android:id="@+id/addImg_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/add_24"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+                app:layout_constraintEnd_toEndOf="@+id/name_et"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="@+id/cardView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

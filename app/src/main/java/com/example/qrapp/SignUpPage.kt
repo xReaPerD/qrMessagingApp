@@ -47,7 +47,7 @@ class SignUpPage : AppCompatActivity() {
 
 
 
-        val animBottom = AnimationUtils.loadAnimation(this,R.anim.bottom_anim)
+        val animBottom = AnimationUtils.loadAnimation(this,R.anim.up_to_down_anim)
         val animTop  = AnimationUtils.loadAnimation(this,R.anim.top_anim)
 
         val back_btn = findViewById<Button>(R.id.return_btn)
@@ -75,6 +75,11 @@ class SignUpPage : AppCompatActivity() {
         regis_tv.startAnimation(animTop)
         sign_up_container_img.startAnimation(animTop)
 
+        name_et.startAnimation(animBottom)
+        uname_et.startAnimation(animBottom)
+        uemail_et.startAnimation(animBottom)
+        upass.startAnimation(animBottom)
+        upassCon.startAnimation(animBottom)
         cont_btn.startAnimation(animBottom)
 
         prof_box.startAnimation(animTop)
