@@ -5,8 +5,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.MessageActivity
 import com.example.qrapp.R
@@ -22,11 +24,14 @@ class Horizontal_RecyclerView(val context: Context?, val userList: ArrayList<Use
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentUser = userList[position]
 
+        Glide.with(context!!).load(userList[position].userImg).into(holder.profileImg)
+
         holder.userName.text = currentUser.username
         holder.itemView.setOnClickListener {
             val toMessageActivity = Intent(context, MessageActivity::class.java)
             toMessageActivity.putExtra("Name",currentUser.name)
             toMessageActivity.putExtra("uid",currentUser.uid)
+//            toMessageActivity.putExtra("ImgUri",currentUser.userImg)
             context?.startActivity(toMessageActivity)
         }
     }
@@ -36,7 +41,7 @@ class Horizontal_RecyclerView(val context: Context?, val userList: ArrayList<Use
     }
     class MyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
         val userName = itemView.findViewById<TextView>(R.id.person_name_tv)
-//        val profileImg = itemView.findViewById<ImageView>(R.id.person_prof_pic_img)
+        val profileImg = itemView.findViewById<ImageView>(R.id.person_pic_img)
 
     }
 

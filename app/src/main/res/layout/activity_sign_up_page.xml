@@ -27,6 +27,7 @@
             <ImageView
                 android:id="@+id/signUn_box_img"
                 android:layout_width="match_parent"
+                android:scaleType="centerCrop"
                 android:layout_height="210dp"
                 android:background="@drawable/top_box_container"
                 app:layout_constraintEnd_toEndOf="parent"

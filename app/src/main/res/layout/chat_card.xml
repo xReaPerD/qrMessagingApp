@@ -40,18 +40,23 @@
         <androidx.cardview.widget.CardView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginStart="36dp"
             app:cardCornerRadius="40dp"
+            android:layout_marginLeft="50dp"
+            app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/person_id_tv"
-            app:layout_constraintStart_toStartOf="@+id/person_prof_pic_img"
-            app:layout_constraintTop_toTopOf="@+id/person_id_tv"></androidx.cardview.widget.CardView>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/person_id_tv">
 
-        <ImageView
-            android:id="@+id/person_prof_pic_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="-8dp"
-            tools:layout_editor_absoluteY="15dp" />
+            <ImageView
+                android:id="@+id/person_prof_pic_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:layout_editor_absoluteX="-8dp"
+                tools:layout_editor_absoluteY="15dp" />
+        </androidx.cardview.widget.CardView>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

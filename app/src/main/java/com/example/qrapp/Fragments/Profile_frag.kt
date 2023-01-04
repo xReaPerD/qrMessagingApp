@@ -77,16 +77,12 @@ class Profile_frag : Fragment() {
                         username_tv.text = currentUsers?.username
                         email_tv.text = currentUsers?.email
 
-
                     }
-
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-
             }
-
         })
 
         imgDataReference.child(userId).get()

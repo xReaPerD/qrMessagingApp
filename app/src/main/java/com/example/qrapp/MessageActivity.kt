@@ -1,16 +1,20 @@
 package com.example.qrapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.qrapp.Adapter.MessageAdapter
 import com.example.qrapp.DataFile.MessageFile
+import com.example.qrapp.DataFile.User
 import com.example.qrapp.Fragments.chat_main_frag
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -22,11 +26,13 @@ class MessageActivity : AppCompatActivity() {
     private lateinit var send_btn:Button
     private lateinit var messageBox:EditText
     private lateinit var chatPersonName:TextView
+    private lateinit var chatterProf:ImageView
 
     private lateinit var chatRecyclerView:RecyclerView
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<MessageFile>
     private lateinit var dbRef:DatabaseReference
+    private lateinit var mAuth:FirebaseAuth
 
     var senderRoom : String? = null
     var receiverRoom :String? = null
@@ -37,20 +43,26 @@ class MessageActivity : AppCompatActivity() {
 
         val name = intent.getStringExtra("Name")
         val receiverUid = intent.getStringExtra("uid")
+//        val imgUri = intent.getStringExtra("ImgUri")
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
         senderRoom = receiverUid + senderUid
         receiverRoom = senderUid + receiverUid
 
         dbRef = FirebaseDatabase.getInstance().getReference()
+        mAuth = FirebaseAuth.getInstance()
 
         back_btn = findViewById(R.id.back_btn)
         chatPersonName = findViewById(R.id.uName_tv)
         send_btn = findViewById(R.id.send_btn)
         messageBox = findViewById(R.id.message_box_et)
+
+        chatterProf = findViewById(R.id.userProf_img)
+
         chatRecyclerView = findViewById(R.id.chat_rc_view)
 
         chatPersonName.text = name
+
 
         messageList = ArrayList()
         messageAdapter = MessageAdapter(this, messageList)
@@ -75,6 +87,30 @@ class MessageActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
+
+        //test.....
+//        val imgDataReference = FirebaseDatabase.getInstance().getReference("Users")
+//        dbRef.child("Users").addValueEventListener(object : ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (postSnapShot in snapshot.children){
+//                    val currentUsers = postSnapShot.getValue(User::class.java)
+//                    if(mAuth.currentUser?.uid != currentUsers?.uid) {
+//
+//                        currentUsers?.uid?.let {
+//                            imgDataReference.child(it).get()
+//                                .addOnSuccessListener {
+//                                    val url = it.child("userImg").getValue(imgUri) //working.............
+//                                    Glide.with(this@MessageActivity).load(url).into(chatterProf)
+//                                }
+//                        }
+//
+//                    }
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//            }
+//        })
 
         send_btn.setOnClickListener {
             val message = messageBox.text.toString()
