@@ -9,11 +9,20 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var userAuth:FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        userAuth = FirebaseAuth.getInstance()
+        if (userAuth.getCurrentUser() != null) {
+            startActivity(Intent(this,MainChatPage::class.java))
+            finish()
+        }
 
         //animation references
         val topAnim = AnimationUtils.loadAnimation(this,R.anim.top_anim)
