@@ -20,7 +20,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="35dp"
-            android:elevation="15dp"
+            app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.466"
             app:layout_constraintStart_toStartOf="parent"

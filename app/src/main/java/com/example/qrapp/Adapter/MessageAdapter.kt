@@ -29,6 +29,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<MessageFil
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val currentMessage = messageList[position]
+
         if(holder.javaClass == sentViewHolder::class.java){ //*Note: This is being used to alter between message sent by user and message received by user
             //if contents of holder same do the following for sentViewholder
             val viewHolder = holder as sentViewHolder
@@ -45,6 +46,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<MessageFil
     override fun getItemViewType(position: Int): Int {
         val currentMessage = messageList[position]
         //*Note This is being to inflate viewholder on Condition
+
         if(FirebaseAuth.getInstance().currentUser?.uid.equals(currentMessage.senderId)){
             return ITEM_SENT
         }else{

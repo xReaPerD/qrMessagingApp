@@ -83,6 +83,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="55dp"
             app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="@+id/username_title_tv"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="@+id/username_title_tv"
