@@ -32,7 +32,9 @@ class Chat_vertical_RecyclerVie(val context: Context?, val userList: ArrayList<U
             val toMessageActivity = Intent(context,MessageActivity::class.java)
             toMessageActivity.putExtra("Name",currentUser.name)
             toMessageActivity.putExtra("uid", currentUser.uid)
-            context?.startActivity(toMessageActivity)
+            toMessageActivity.putExtra("image",currentUser.userImg)
+
+            context.startActivity(toMessageActivity)
         }
     }
 
@@ -42,5 +44,7 @@ class Chat_vertical_RecyclerVie(val context: Context?, val userList: ArrayList<U
     class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
         val personName = itemView.findViewById<TextView>(R.id.person_id_tv)
         val personProfImg = itemView.findViewById<ImageView>(R.id.person_prof_pic_img)
+
+
     }
 }

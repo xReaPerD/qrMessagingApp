@@ -31,6 +31,7 @@ class MessageActivity : AppCompatActivity() {
     private lateinit var chatRecyclerView:RecyclerView
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<MessageFile>
+
     private lateinit var dbRef:DatabaseReference
     private lateinit var mAuth:FirebaseAuth
 
@@ -43,7 +44,6 @@ class MessageActivity : AppCompatActivity() {
 
         val name = intent.getStringExtra("Name")
         val receiverUid = intent.getStringExtra("uid")
-//        val imgUri = intent.getStringExtra("ImgUri")
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
         senderRoom = receiverUid + senderUid
@@ -62,12 +62,15 @@ class MessageActivity : AppCompatActivity() {
         chatRecyclerView = findViewById(R.id.chat_rc_view)
 
         chatPersonName.text = name
-
+        Glide.with(this).load(intent.getStringExtra("image")).into(chatterProf)
+        Glide.with(this).load(intent.getStringExtra("ImgUri")).into(chatterProf)
 
         messageList = ArrayList()
+
         messageAdapter = MessageAdapter(this, messageList)
         chatRecyclerView.layoutManager = LinearLayoutManager(this)
         chatRecyclerView.adapter = messageAdapter
+
 
         back_btn.setOnClickListener {
             val backToMainPage = Intent(this,MainChatPage::class.java)
@@ -89,30 +92,6 @@ class MessageActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
-
-        //test.....
-//        val imgDataReference = FirebaseDatabase.getInstance().getReference("Users")
-//        dbRef.child("Users").addValueEventListener(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                for (postSnapShot in snapshot.children){
-//                    val currentUsers = postSnapShot.getValue(User::class.java)
-//                    if(mAuth.currentUser?.uid != currentUsers?.uid) {
-//
-//                        currentUsers?.uid?.let {
-//                            imgDataReference.child(it).get()
-//                                .addOnSuccessListener {
-//                                    val url = it.child("userImg").getValue(imgUri) //working.............
-//                                    Glide.with(this@MessageActivity).load(url).into(chatterProf)
-//                                }
-//                        }
-//
-//                    }
-//                }
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//            }
-//        })
 
         send_btn.setOnClickListener {
             val message = messageBox.text.toString()

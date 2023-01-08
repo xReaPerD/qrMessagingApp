@@ -31,7 +31,7 @@ class Horizontal_RecyclerView(val context: Context?, val userList: ArrayList<Use
             val toMessageActivity = Intent(context, MessageActivity::class.java)
             toMessageActivity.putExtra("Name",currentUser.name)
             toMessageActivity.putExtra("uid",currentUser.uid)
-//            toMessageActivity.putExtra("ImgUri",currentUser.userImg)
+            toMessageActivity.putExtra("ImgUri",currentUser.userImg)
             context?.startActivity(toMessageActivity)
         }
     }
