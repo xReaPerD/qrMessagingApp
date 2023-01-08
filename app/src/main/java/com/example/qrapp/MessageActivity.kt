@@ -38,6 +38,7 @@ class MessageActivity : AppCompatActivity() {
     var senderRoom : String? = null
     var receiverRoom :String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
@@ -58,12 +59,11 @@ class MessageActivity : AppCompatActivity() {
         messageBox = findViewById(R.id.message_box_et)
 
         chatterProf = findViewById(R.id.userProf_img)
-
+        val chatterProf2 = findViewById<ImageView>(R.id.userProf_img2)
         chatRecyclerView = findViewById(R.id.chat_rc_view)
-
         chatPersonName.text = name
         Glide.with(this).load(intent.getStringExtra("image")).into(chatterProf)
-        Glide.with(this).load(intent.getStringExtra("ImgUri")).into(chatterProf)
+        Glide.with(this).load(intent.getStringExtra("ImgUri")).into(chatterProf2)
 
         messageList = ArrayList()
 
