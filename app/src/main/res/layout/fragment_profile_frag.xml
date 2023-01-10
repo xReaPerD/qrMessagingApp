@@ -16,13 +16,14 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
+            android:layout_marginLeft="280dp"
             android:background="@drawable/add_btn_shape"
             android:drawableLeft="@drawable/ic_baseline_more_vert_24"
             android:paddingLeft="13dp"
 
             app:layout_constraintEnd_toEndOf="@+id/blue_box_drop_container"
             app:layout_constraintHorizontal_bias="0.768"
-            app:layout_constraintStart_toEndOf="@+id/username_title_tv"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -79,8 +80,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/profile_pic_cv"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginTop="55dp"
             app:cardCornerRadius="50dp"
             app:cardElevation="15dp"
