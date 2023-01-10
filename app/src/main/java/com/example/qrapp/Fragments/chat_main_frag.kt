@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +40,15 @@ class chat_main_frag : Fragment() {
         recyclerView = view.findViewById(R.id.contact_hori_scroller_rv)
         vRecycle = view.findViewById(R.id.chat_view_rv)
 
+        val bottom_anim = AnimationUtils.loadAnimation(context,R.anim.bottom_anim)
+        val left_anim = AnimationUtils.loadAnimation(context,R.anim.left_anim)
+
+        val chatDrawer = view.findViewById<ImageView>(R.id.chat_container_img)
+        val drawerTitle = view.findViewById<TextView>(R.id.textViewT)
+        chatDrawer.startAnimation(bottom_anim)
+        drawerTitle.startAnimation(bottom_anim)
+        vRecycle.startAnimation(bottom_anim)
+        recyclerView.startAnimation(left_anim)
         activity?.overridePendingTransition(R.anim.cross_fadein,R.anim.cross_fadeout)
         return view
     }
