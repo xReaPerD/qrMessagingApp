@@ -10,18 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/chat_time_tv"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="32dp"-->
-        <!--            android:layout_marginEnd="24dp"-->
-        <!--            android:text="time_show"-->
-        <!--            android:textColor="@color/ocean_blue"-->
-        <!--            android:textSize="13sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/person_id_tv"
@@ -29,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="128dp"
             android:text=""
-            android:textColor="@color/black"
+            android:textColor="@color/offBlack"
             android:textSize="17sp"
 
             android:textStyle="bold"
@@ -37,11 +25,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+<!--        <TextView-->
+<!--            android:id="@+id/chat_receive_show_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            android:textSize="10sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/cardView4"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/person_id_tv"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/person_id_tv" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/chat_sent_show_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            android:textSize="10sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/cardView4"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/person_id_tv"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/person_id_tv" />-->
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:cardCornerRadius="40dp"
             android:layout_marginLeft="50dp"
+            app:cardCornerRadius="40dp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/person_id_tv"
             app:layout_constraintStart_toStartOf="parent"

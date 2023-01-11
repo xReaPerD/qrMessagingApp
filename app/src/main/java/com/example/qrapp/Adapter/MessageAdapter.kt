@@ -1,6 +1,8 @@
 package com.example.qrapp.Adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.qrapp.DataFile.MessageFile
+import com.example.qrapp.Fragments.chat_main_frag
+import com.example.qrapp.MessageActivity
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,11 +38,17 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<MessageFil
             //if contents of holder same do the following for sentViewholder
             val viewHolder = holder as sentViewHolder
 
-            holder.sentMessage.text = currentMessage.message
+            viewHolder.sentMessage.text = currentMessage.message
+//            viewHolder.itemView.setOnClickListener {
+//                val toChatFrag = chat_main_frag()
+//                val bundle = Bundle()
+//                bundle.putString("sentMessage",currentMessage.message)
+//
+//            }
 
         }else{
             val viewHolder = holder as receiveViewHolder
-            holder.receiveMessage.text = currentMessage.message
+            viewHolder.receiveMessage.text = currentMessage.message
         }
 
     }
@@ -62,8 +72,10 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<MessageFil
     class sentViewHolder(itemView: View): ViewHolder(itemView){
         val sentMessage = itemView.findViewById<TextView>(R.id.send_text_tv)
 
+
     }
     class receiveViewHolder(itemView: View): ViewHolder(itemView){
         val receiveMessage = itemView.findViewById<TextView>(R.id.receive_text_tv)
+
     }
 }

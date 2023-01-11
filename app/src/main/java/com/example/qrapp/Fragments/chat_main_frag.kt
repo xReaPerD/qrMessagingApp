@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.Adapter.Chat_vertical_RecyclerVie
 import com.example.qrapp.Adapter.Horizontal_RecyclerView
+import com.example.qrapp.DataFile.MessageFile
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +26,7 @@ class chat_main_frag : Fragment() {
     private lateinit var adapter: Horizontal_RecyclerView
 
     private lateinit var userList:ArrayList<User>
+
     private lateinit var dbRef:DatabaseReference
     private lateinit var mAuth:FirebaseAuth
 
@@ -45,6 +47,7 @@ class chat_main_frag : Fragment() {
 
         val chatDrawer = view.findViewById<ImageView>(R.id.chat_container_img)
         val drawerTitle = view.findViewById<TextView>(R.id.textViewT)
+
         chatDrawer.startAnimation(bottom_anim)
         drawerTitle.startAnimation(bottom_anim)
         vRecycle.startAnimation(bottom_anim)
@@ -59,6 +62,7 @@ class chat_main_frag : Fragment() {
         dbRef = FirebaseDatabase.getInstance().getReference()
         mAuth = FirebaseAuth.getInstance()
         userList = ArrayList()
+
 
         adapter = Horizontal_RecyclerView(context,userList)
         vAdapter = Chat_vertical_RecyclerVie(context,userList)
