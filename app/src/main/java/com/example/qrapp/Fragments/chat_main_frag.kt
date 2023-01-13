@@ -18,6 +18,8 @@ import com.example.qrapp.DataFile.User
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class chat_main_frag : Fragment() {
@@ -47,6 +49,10 @@ class chat_main_frag : Fragment() {
 
         val chatDrawer = view.findViewById<ImageView>(R.id.chat_container_img)
         val drawerTitle = view.findViewById<TextView>(R.id.textViewT)
+
+        val currDay = Calendar.getInstance()
+        val showDays:String = currDay.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.getDefault())
+        drawerTitle.text = showDays
 
         chatDrawer.startAnimation(bottom_anim)
         drawerTitle.startAnimation(bottom_anim)

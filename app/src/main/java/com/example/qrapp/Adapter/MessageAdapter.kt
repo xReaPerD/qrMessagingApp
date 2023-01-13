@@ -39,12 +39,8 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<MessageFil
             val viewHolder = holder as sentViewHolder
 
             viewHolder.sentMessage.text = currentMessage.message
-//            viewHolder.itemView.setOnClickListener {
-//                val toChatFrag = chat_main_frag()
-//                val bundle = Bundle()
-//                bundle.putString("sentMessage",currentMessage.message)
 //
-//            }
+
 
         }else{
             val viewHolder = holder as receiveViewHolder
