@@ -14,6 +14,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.MessageFile
 import com.example.qrapp.DataFile.User
@@ -39,6 +40,7 @@ class Profile_frag : Fragment() {
     private lateinit var username_tv : TextView
     private lateinit var email_tv : TextView
     private lateinit var userProf : ImageView
+    private lateinit var blueDrop : ImageView
 
     private lateinit var mAuth:FirebaseAuth
     private lateinit var dbRef: DatabaseReference
@@ -60,6 +62,14 @@ class Profile_frag : Fragment() {
         username_tv = view.findViewById(R.id.username_name_tv)
         email_tv = view.findViewById(R.id.user_email_tv)
         userProf = view.findViewById(R.id.C_user_prof_img)
+        blueDrop = view.findViewById(R.id.blue_box_drop_container)
+        val userCV = view.findViewById<CardView>(R.id.profile_pic_cv)
+
+        val top_anim = AnimationUtils.loadAnimation(context,R.anim.top_anim)
+        blueDrop.startAnimation(top_anim)
+        userCV.startAnimation(top_anim)
+        dropBelowButton.startAnimation(top_anim)
+        title_name.startAnimation(top_anim)
 
         mAuth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance().getReference()
