@@ -136,20 +136,20 @@ class Profile_frag : Fragment() {
     }
     private fun setVisibility(clicked:Boolean){
         if(!clicked){
-            to_edit_mode!!.visibility = View.VISIBLE
-            logOut_fab!!.visibility = View.VISIBLE
+            to_edit_mode.visibility = View.VISIBLE
+            logOut_fab.visibility = View.VISIBLE
         }else{
-            to_edit_mode!!.visibility = View.INVISIBLE
-            logOut_fab!!.visibility = View.INVISIBLE
+            to_edit_mode.visibility = View.INVISIBLE
+            logOut_fab.visibility = View.INVISIBLE
         }
     }
     private fun setAnimation(clicked: Boolean){
         if (!clicked){
-            to_edit_mode!!.startAnimation(fromTop)
-            logOut_fab!!.startAnimation(fromTop)
+            to_edit_mode.startAnimation(fromTop)
+            logOut_fab.startAnimation(fromTop)
         }else{
-            to_edit_mode!!.startAnimation(toTop)
-            logOut_fab!!.startAnimation(toTop)
+            to_edit_mode.startAnimation(toTop)
+            logOut_fab.startAnimation(toTop)
         }
     }
 

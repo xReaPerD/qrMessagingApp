@@ -6,16 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 
 class QrPage : AppCompatActivity() {
+
+    private lateinit var mAuth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_page)
 
-        val url = "https://www.youtube.com/"
+        mAuth = FirebaseAuth.getInstance()
+        val url = "User: "+mAuth.currentUser!!.uid //work in progress
         val contentView = findViewById<ImageView>(R.id.Qr_code_box)
         val bitmap = generateQrCode(url)
         contentView.setImageBitmap(bitmap)
