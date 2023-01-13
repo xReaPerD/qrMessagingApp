@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.Adapter.Chat_vertical_RecyclerVie
 import com.example.qrapp.Adapter.Horizontal_RecyclerView
-import com.example.qrapp.DataFile.MessageFile
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
@@ -51,7 +49,7 @@ class chat_main_frag : Fragment() {
         val drawerTitle = view.findViewById<TextView>(R.id.textViewT)
 
         val currDay = Calendar.getInstance()
-        val showDays:String = currDay.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.getDefault())
+        val showDays:String? = currDay.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.getDefault())
         drawerTitle.text = showDays
 
         chatDrawer.startAnimation(bottom_anim)
