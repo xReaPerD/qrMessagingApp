@@ -42,8 +42,8 @@ class chat_main_frag : Fragment() {
         recyclerView = view.findViewById(R.id.contact_hori_scroller_rv)
         vRecycle = view.findViewById(R.id.chat_view_rv)
 
-        val bottom_anim = AnimationUtils.loadAnimation(context,R.anim.bottom_anim)
-        val left_anim = AnimationUtils.loadAnimation(context,R.anim.left_anim)
+        val bottomAnim = AnimationUtils.loadAnimation(context,R.anim.bottom_anim)
+        val leftAnim = AnimationUtils.loadAnimation(context,R.anim.left_anim)
 
         val chatDrawer = view.findViewById<ImageView>(R.id.chat_container_img)
         val drawerTitle = view.findViewById<TextView>(R.id.textViewT)
@@ -52,10 +52,10 @@ class chat_main_frag : Fragment() {
         val showDays:String? = currDay.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.getDefault())
         drawerTitle.text = showDays
 
-        chatDrawer.startAnimation(bottom_anim)
-        drawerTitle.startAnimation(bottom_anim)
-        vRecycle.startAnimation(bottom_anim)
-        recyclerView.startAnimation(left_anim)
+        chatDrawer.startAnimation(bottomAnim)
+        drawerTitle.startAnimation(bottomAnim)
+        vRecycle.startAnimation(bottomAnim)
+        recyclerView.startAnimation(leftAnim)
         activity?.overridePendingTransition(R.anim.cross_fadein,R.anim.cross_fadeout)
         return view
     }

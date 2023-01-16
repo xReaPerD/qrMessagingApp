@@ -1,18 +1,14 @@
 package com.example.qrapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.qrapp.Adapter.Chat_vertical_RecyclerVie
-import com.example.qrapp.Adapter.Horizontal_RecyclerView
 import com.example.qrapp.Fragments.Contact_frag
 import com.example.qrapp.Fragments.Profile_frag
 import com.example.qrapp.Fragments.Settings_Frags
@@ -21,6 +17,7 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
 
 class MainChatPage : AppCompatActivity() {
 
@@ -68,7 +65,9 @@ class MainChatPage : AppCompatActivity() {
                 intentIntegrator.setBeepEnabled(false)
                 intentIntegrator.setBarcodeImageEnabled(true)
                 intentIntegrator.initiateScan()
-                Toast.makeText(this,"Your Scan",Toast.LENGTH_SHORT).show()
+
+//                val toScanPage = Intent(this,AfterScanActivity::class.java)
+//                startActivity(toScanPage)
             }
             qR_code.setOnClickListener {
                 val to_qr_Page = Intent(this,QrPage::class.java)
@@ -97,6 +96,22 @@ class MainChatPage : AppCompatActivity() {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_home_layout,fragment)
             transaction.commit()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val result: IntentResult? = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "sssuccues", Toast.LENGTH_LONG).show()
+                val toScanPage = Intent(this,AfterScanActivity::class.java)
+                toScanPage.putExtra("checkQR",result.contents)
+                startActivity(toScanPage)
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 }

@@ -19,7 +19,7 @@ class QrPage : AppCompatActivity() {
         setContentView(R.layout.activity_qr_page)
 
         mAuth = FirebaseAuth.getInstance()
-        val url = "User: "+mAuth.currentUser!!.uid //work in progress
+        val url = "User ID: "+mAuth.currentUser!!.uid //work in progress
         val contentView = findViewById<ImageView>(R.id.Qr_code_box)
         val bitmap = generateQrCode(url)
         contentView.setImageBitmap(bitmap)

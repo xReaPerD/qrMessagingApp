@@ -17,6 +17,13 @@
         android:theme="@style/Theme.QrApp"
         tools:targetApi="31">
         <activity
+            android:name=".AfterScanActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MessageActivity"
             android:exported="false">
             <meta-data
@@ -62,8 +69,7 @@
         <activity
             android:name=".SignUpPage"
             android:exported="false"
-            android:theme="@style/SignUp_Page"
-            >
+            android:theme="@style/SignUp_Page">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
