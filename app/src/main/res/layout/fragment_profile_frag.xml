@@ -40,6 +40,21 @@
             app:layout_constraintTop_toBottomOf="@+id/three_dot_fab" />
 
         <Button
+            android:id="@+id/qrCodeButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/add_btn_shape"
+            android:drawableLeft="@drawable/_qr_code_24"
+            android:paddingLeft="14dp"
+
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/to_edit_mode_btn"
+            app:layout_constraintStart_toStartOf="@+id/to_edit_mode_btn"
+            app:layout_constraintTop_toBottomOf="@+id/to_edit_mode_btn"
+            />
+
+        <Button
             android:id="@+id/log_out_fab"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -49,9 +64,9 @@
             android:paddingLeft="14dp"
 
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/to_edit_mode_btn"
-            app:layout_constraintStart_toStartOf="@+id/to_edit_mode_btn"
-            app:layout_constraintTop_toBottomOf="@+id/to_edit_mode_btn" />
+            app:layout_constraintEnd_toEndOf="@+id/qrCodeButton"
+            app:layout_constraintStart_toStartOf="@+id/qrCodeButton"
+            app:layout_constraintTop_toBottomOf="@+id/qrCodeButton" />
 
         <ImageView
             android:id="@+id/blue_box_drop_container"
