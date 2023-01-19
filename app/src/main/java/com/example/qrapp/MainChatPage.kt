@@ -51,7 +51,6 @@ class MainChatPage : AppCompatActivity() {
 
             val exit_dialog = dialogView.findViewById<ImageView>(R.id.dialog_exit_btn)
             val you_scan = dialogView.findViewById<ImageView>(R.id.button)
-            val qR_code = dialogView.findViewById<ImageView>(R.id.button2)
 
             exit_dialog.setOnClickListener {
                 showDia.cancel()
@@ -69,11 +68,7 @@ class MainChatPage : AppCompatActivity() {
 //                val toScanPage = Intent(this,AfterScanActivity::class.java)
 //                startActivity(toScanPage)
             }
-            qR_code.setOnClickListener {
-                val to_qr_Page = Intent(this,QrPage::class.java)
-                startActivity(to_qr_Page)
-                Toast.makeText(this,"QR Code",Toast.LENGTH_SHORT).show()
-            }
+
         }
 
 

@@ -13,13 +13,13 @@
 
         <Button
             android:id="@+id/three_dot_fab"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="280dp"
+            android:layout_marginLeft="260dp"
             android:background="@drawable/add_btn_shape"
             android:drawableLeft="@drawable/ic_baseline_more_vert_24"
-            android:paddingLeft="13dp"
+            android:paddingLeft="12dp"
 
             app:layout_constraintEnd_toEndOf="@+id/blue_box_drop_container"
             app:layout_constraintHorizontal_bias="0.768"
@@ -28,12 +28,12 @@
 
         <Button
             android:id="@+id/to_edit_mode_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="6dp"
             android:background="@drawable/add_btn_shape"
             android:drawableLeft="@drawable/edit_24"
-            android:paddingLeft="15dp"
+            android:paddingLeft="12dp"
 
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/three_dot_fab"
@@ -41,12 +41,12 @@
 
         <Button
             android:id="@+id/qrCodeButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="6dp"
             android:background="@drawable/add_btn_shape"
             android:drawableLeft="@drawable/_qr_code_24"
-            android:paddingLeft="14dp"
+            android:paddingLeft="12dp"
 
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/to_edit_mode_btn"
@@ -56,12 +56,12 @@
 
         <Button
             android:id="@+id/log_out_fab"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="6dp"
             android:background="@drawable/add_btn_shape"
             android:drawableLeft="@drawable/ic_baseline_logout_24"
-            android:paddingLeft="14dp"
+            android:paddingLeft="12dp"
 
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/qrCodeButton"
