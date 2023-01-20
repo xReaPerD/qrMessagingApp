@@ -7,10 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import android.widget.RelativeLayout
-import androidx.cardview.widget.CardView
+
+import android.widget.TextView
+
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
+
+import com.example.qrapp.DataFile.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
@@ -18,17 +23,40 @@ import com.google.zxing.WriterException
 class QrPage : AppCompatActivity() {
 
     private lateinit var mAuth : FirebaseAuth
+    private lateinit var dbRef: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_page)
 
+        dbRef = FirebaseDatabase.getInstance().getReference()
+        mAuth = FirebaseAuth.getInstance()
+
         val qrBackBox = findViewById<ConstraintLayout>(R.id.qrBackBox)
+        val qrShowProf = findViewById<ImageView>(R.id.userOwnProf)
+        val qrUsername = findViewById<TextView>(R.id.usernameID_tv)
+
+        //test qrprof
+        dbRef.child("Users").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (postSnapShot in snapshot.children){
+                    val currentUsers = postSnapShot.getValue(User::class.java)
+                    if(mAuth.currentUser?.uid == currentUsers?.uid) {
+                        Glide.with(this@QrPage).load(currentUsers?.userImg).into(qrShowProf)
+                        qrUsername.text = "@" + currentUsers?.username
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
         val animatedBack:AnimationDrawable = qrBackBox.background as AnimationDrawable
-        animatedBack.setEnterFadeDuration(2000)
-        animatedBack.setExitFadeDuration(3000)
+        animatedBack.setEnterFadeDuration(1000)
+        animatedBack.setExitFadeDuration(2000)
         animatedBack.start()
 
-        mAuth = FirebaseAuth.getInstance()
+
         val url = "User ID: "+mAuth.currentUser!!.uid //work in progress
         val contentView = findViewById<ImageView>(R.id.Qr_code_box)
         val bitmap = generateQrCode(url)

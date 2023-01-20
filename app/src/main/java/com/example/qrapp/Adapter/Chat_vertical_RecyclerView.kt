@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.MessageActivity
+import com.example.qrapp.QrPage
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -36,6 +37,7 @@ class Chat_vertical_RecyclerVie(val context: Context?, val userList: ArrayList<U
 
             context.startActivity(toMessageActivity)
         }
+
     }
 
     override fun getItemCount(): Int {

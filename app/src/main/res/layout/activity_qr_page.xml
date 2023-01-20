@@ -4,31 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QrPage"
     android:background="@color/ocean_blue"
-    >
+    tools:context=".QrPage">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="95dp"
+       android:layout_height="95dp"
+       app:cardCornerRadius="50dp"
+       app:cardElevation="20dp"
+       android:layout_marginBottom="355dp"
+       app:layout_constraintBottom_toBottomOf="@+id/QrBox"
+       app:layout_constraintEnd_toEndOf="@+id/QrBox"
+       app:layout_constraintStart_toStartOf="@+id/QrBox">
+
+                  <ImageView
+                      android:scaleType="centerCrop"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/userOwnProf"
+                      />
+   </androidx.cardview.widget.CardView>
 
    <androidx.cardview.widget.CardView
        android:id="@+id/QrBox"
        android:layout_width="350dp"
        android:layout_height="400dp"
-       app:cardElevation="15dp"
        app:cardCornerRadius="30dp"
+       app:cardElevation="15dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" >
+       app:layout_constraintTop_toTopOf="parent">
+
       <androidx.constraintlayout.widget.ConstraintLayout
           android:id="@+id/qrBackBox"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:background="@drawable/grad_back"
-          >
+          android:background="@drawable/grad_back">
 
          <ImageView
              android:id="@+id/Qr_code_box"
-             android:layout_width="300dp"
-             android:layout_height="300dp"
+             android:layout_width="290dp"
+             android:layout_height="290dp"
              android:layout_alignParentStart="true"
              android:layout_alignParentTop="true"
              android:layout_alignParentEnd="true"
@@ -38,8 +55,21 @@
              app:layout_constraintStart_toStartOf="parent"
              app:layout_constraintTop_toTopOf="parent"
              app:layout_constraintVertical_bias="1.0" />
-      </androidx.constraintlayout.widget.ConstraintLayout>
 
+         <TextView
+             android:id="@+id/usernameID_tv"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="8dp"
+
+             android:text="test_username"
+             android:textSize="30sp"
+             app:layout_constraintBottom_toTopOf="@+id/Qr_code_box"
+             app:layout_constraintEnd_toEndOf="@+id/Qr_code_box"
+             app:layout_constraintStart_toStartOf="@+id/Qr_code_box" />
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
 
 
    </androidx.cardview.widget.CardView>
