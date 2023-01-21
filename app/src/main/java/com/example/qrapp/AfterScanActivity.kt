@@ -12,7 +12,7 @@ class AfterScanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_after_scan)
 
-        testiTV = findViewById(R.id.testTV)
+        testiTV = findViewById(R.id.textView)
         val testText = intent.getStringExtra("checkQR")
         testiTV.text = testText
 
