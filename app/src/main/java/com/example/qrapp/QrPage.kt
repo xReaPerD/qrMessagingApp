@@ -57,7 +57,7 @@ class QrPage : AppCompatActivity() {
         animatedBack.start()
 
 
-        val url = "User ID: "+mAuth.currentUser!!.uid //work in progress
+        val url = mAuth.currentUser!!.uid //work in progress
         val contentView = findViewById<ImageView>(R.id.Qr_code_box)
         val bitmap = generateQrCode(url)
         contentView.setImageBitmap(bitmap)

@@ -45,6 +45,9 @@
           android:background="@drawable/grad_back">
 
          <ImageView
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+
              android:id="@+id/Qr_code_box"
              android:layout_width="290dp"
              android:layout_height="290dp"
