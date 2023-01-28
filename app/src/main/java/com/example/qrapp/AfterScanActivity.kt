@@ -2,7 +2,9 @@ package com.example.qrapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -14,6 +16,7 @@ import com.google.firebase.database.ValueEventListener
 class AfterScanActivity : AppCompatActivity() {
 
     private lateinit var testiTV : TextView
+    private lateinit var showScannedUser : ImageView
 
     private lateinit var dbRef : DatabaseReference
     private lateinit var mAuth : FirebaseAuth
@@ -26,6 +29,7 @@ class AfterScanActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         testiTV = findViewById(R.id.textView)
+        showScannedUser = findViewById(R.id.showScannedUser_img)
         val testText = intent.getStringExtra("checkQR") //uid being fetched
          //dissplay uid
 
@@ -34,6 +38,7 @@ class AfterScanActivity : AppCompatActivity() {
                 for (postSnapShot in snapshot.children){
                     val presentUsers = postSnapShot.getValue(User::class.java)
                     if (testText == presentUsers!!.uid){
+                        Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser)
                         testiTV.text = presentUsers.name
                     }
 
