@@ -27,7 +27,9 @@
 
    <androidx.cardview.widget.CardView
        android:id="@+id/QrBox"
-       android:layout_width="350dp"
+       android:layout_width="wrap_content"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
        android:layout_height="400dp"
        app:cardCornerRadius="30dp"
        app:cardElevation="15dp"
