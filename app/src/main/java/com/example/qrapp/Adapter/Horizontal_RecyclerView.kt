@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.MessageActivity
 import com.example.qrapp.R
-import com.google.firebase.auth.FirebaseAuth
+
 
 class Horizontal_RecyclerView(val context: Context?, val userList: ArrayList<User>):RecyclerView.Adapter<Horizontal_RecyclerView.MyViewHolder>() {
 
@@ -32,7 +32,7 @@ class Horizontal_RecyclerView(val context: Context?, val userList: ArrayList<Use
             toMessageActivity.putExtra("Name",currentUser.name)
             toMessageActivity.putExtra("uid",currentUser.uid)
             toMessageActivity.putExtra("ImgUri",currentUser.userImg)
-            context?.startActivity(toMessageActivity)
+            context.startActivity(toMessageActivity)
         }
     }
 

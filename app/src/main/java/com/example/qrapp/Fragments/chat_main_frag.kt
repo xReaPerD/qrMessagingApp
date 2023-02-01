@@ -84,6 +84,7 @@ class chat_main_frag : Fragment() {
                 userList.clear() //to clear data and not append it when new user enters
                 for (postSnapShot in snapshot.children){
                     val currentUsers = postSnapShot.getValue(User::class.java)
+
                     if(mAuth.currentUser?.uid != currentUsers?.uid){
                         userList.add(currentUsers!!)
                     }

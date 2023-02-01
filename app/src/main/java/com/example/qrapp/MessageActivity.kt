@@ -43,8 +43,8 @@ class MessageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
 
-        val name = intent.getStringExtra("Name")
-        val receiverUid = intent.getStringExtra("uid")
+        val name = intent.getStringExtra("Name") //from hori_rcV
+        val receiverUid = intent.getStringExtra("uid") //from hori_rcV
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
         senderRoom = receiverUid + senderUid

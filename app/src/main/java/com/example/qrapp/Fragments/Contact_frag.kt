@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.Adapter.Contact_RecyclerView
@@ -29,7 +30,6 @@ class Contact_frag : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_contact_frag, container, false)
         vRecycle = view.findViewById(R.id.contacts_scroller_rv)
-
         return view
     }
 
@@ -43,12 +43,13 @@ class Contact_frag : Fragment() {
         vRecycle.layoutManager = LinearLayoutManager(activity)
         vRecycle.adapter = vAdapter
 
+
         dbRef.child("Users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear() //to clear data and not append it when new user enters
                 for (postSnapShot in snapshot.children){
                     val currentUsers = postSnapShot.getValue(User::class.java)
-                    if(mAuth.currentUser?.uid != currentUsers?.uid){
+                    if(mAuth.currentUser?.uid != currentUsers?.uid) {
                         userList.add(currentUsers!!)
                     }
                 }

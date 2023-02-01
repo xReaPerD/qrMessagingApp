@@ -35,7 +35,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<MessageFil
         val currentMessage = messageList[position]
 
         if(holder.javaClass == sentViewHolder::class.java){ //*Note: This is being used to alter between message sent by user and message received by user
-            //if contents of holder same do the following for sentViewholder
+            //if contents of holder same, do the following for sentViewholder
             val viewHolder = holder as sentViewHolder
 
             viewHolder.sentMessage.text = currentMessage.message

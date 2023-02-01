@@ -1,11 +1,17 @@
 package com.example.qrapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.User
+import com.example.qrapp.Fragments.Contact_frag
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,6 +23,9 @@ class AfterScanActivity : AppCompatActivity() {
 
     private lateinit var testiTV : TextView
     private lateinit var showScannedUser : ImageView
+    private lateinit var addToContactBtn : Button
+    private lateinit var cancelBtn : Button
+    private lateinit var imgUri : String
 
     private lateinit var dbRef : DatabaseReference
     private lateinit var mAuth : FirebaseAuth
@@ -30,20 +39,24 @@ class AfterScanActivity : AppCompatActivity() {
 
         testiTV = findViewById(R.id.textView)
         showScannedUser = findViewById(R.id.showScannedUser_img)
+        addToContactBtn = findViewById(R.id.button2)
+        cancelBtn = findViewById(R.id.button3)
+
         val testText = intent.getStringExtra("checkQR") //uid being fetched
-         //dissplay uid
+
+         //display uid
 
         dbRef.child("Users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (postSnapShot in snapshot.children){
                     val presentUsers = postSnapShot.getValue(User::class.java)
                     if (testText == presentUsers!!.uid){
-                        Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser)
+                        imgUri = Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser)
+                            .toString()
                         testiTV.text = presentUsers.name
+
                     }
-
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -51,6 +64,20 @@ class AfterScanActivity : AppCompatActivity() {
             }
 
         })
+
+        addToContactBtn.setOnClickListener {
+//            val contacts = testiTV.text.toString()
+//            val conID = Contacts(contacts)
+//            dbRef.child("Contacts").child("contactIDs").child(mAuth.currentUser!!.uid).push()
+//                .setValue(conID)
+            val toMainChatActivity = Intent(this,MainChatPage::class.java)
+            startActivity(toMainChatActivity)
+
+        }
+        cancelBtn.setOnClickListener {
+            val toMainChatActivity = Intent(this,MainChatPage::class.java)
+            startActivity(toMainChatActivity)
+        }
 
     }
 }

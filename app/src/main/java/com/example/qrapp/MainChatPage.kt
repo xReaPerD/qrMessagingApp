@@ -26,17 +26,21 @@ class MainChatPage : AppCompatActivity() {
     private val profileFrag = Profile_frag()
     private val settingFrag = Settings_Frags()
 
+    private lateinit var bottomNav : BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_chat_page)
         replaceFragment(mainChat)
+//_______________________________________________________________________________
 
+//_______________________________________________________________________________
         val bottom_anim = AnimationUtils.loadAnimation(this,R.anim.bottom_anim)
 
-        val botmNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNav = findViewById(R.id.bottomNavigationView)
         val botmAnchr = findViewById<BottomAppBar>(R.id.bottom_anchor)
         botmAnchr.startAnimation(bottom_anim)
-        botmNav.startAnimation(bottom_anim)
+        bottomNav.startAnimation(bottom_anim)
 
         val fab_btn = findViewById<FloatingActionButton>(R.id.fab_for_qr_dialog)
         fab_btn.startAnimation(bottom_anim)
@@ -72,7 +76,7 @@ class MainChatPage : AppCompatActivity() {
         }
 
 
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNav = findViewById(R.id.bottomNavigationView)
         bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home_id -> replaceFragment(mainChat)
@@ -87,11 +91,9 @@ class MainChatPage : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-        if(fragment != null){
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_home_layout,fragment)
-            transaction.commit()
-        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_home_layout,fragment)
+        transaction.commit()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
