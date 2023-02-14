@@ -61,6 +61,7 @@
           android:layout_marginStart="52dp"
           android:layout_marginTop="24dp"
           android:text="Recent"
+          android:textStyle="bold"
           android:textColor="@color/black"
           android:textSize="28sp"
           app:layout_constraintStart_toStartOf="@+id/chat_container_img"
