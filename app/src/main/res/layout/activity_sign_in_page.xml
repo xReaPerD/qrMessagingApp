@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signIn_back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInPage"
     android:background="@drawable/grad_back"
-    android:id="@+id/signIn_back"
-    >
+    tools:context=".SignInPage">
 
     <Button
         android:id="@+id/back_btn"
@@ -15,9 +14,9 @@
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/log_back_btn"
         android:drawableStart="@drawable/arrow_back_ios_24"
         android:paddingLeft="18dp"
-        android:background="@drawable/log_back_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,9 +77,9 @@
         android:background="@drawable/et_box_design"
         android:drawableLeft="@drawable/email_24_box"
         android:drawablePadding="10dp"
-        android:paddingLeft="5dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:paddingLeft="5dp"
         app:layout_constraintEnd_toEndOf="@+id/signIn_box_img"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/signIn_box_img"
@@ -101,12 +100,12 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:hint="Password"
-        android:drawablePadding="10dp"
-        android:paddingLeft="5dp"
-        android:inputType="textPassword"
         android:background="@drawable/et_box_design"
         android:drawableLeft="@drawable/lock_24_box"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="5dp"
         app:layout_constraintEnd_toEndOf="@+id/email_et"
         app:layout_constraintHorizontal_bias="0.982"
         app:layout_constraintStart_toStartOf="@+id/email_et"
@@ -122,29 +121,34 @@
         app:layout_constraintEnd_toEndOf="@+id/pass_et"
         app:layout_constraintTop_toBottomOf="@+id/pass_et" />
 
-    <TextView
-        android:id="@+id/forgotPass_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Forgot Password?"
-        android:textColor="@color/ocean_blue"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/pass_et"
-        app:layout_constraintTop_toBottomOf="@+id/pass_et" />
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="200dp"
         android:layout_height="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_shape"
-        android:layout_marginEnd="44dp"
         android:text="Sign in"
-        android:textSize="18sp"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/forgotPass_tv"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPass_tv" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/pass_et"
+        app:layout_constraintStart_toStartOf="@+id/pass_et"
+        app:layout_constraintTop_toBottomOf="@+id/pass_et" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messenger"
+        android:textColor="@color/ocean_blue"
+        android:textSize="26sp"
+        android:layout_marginBottom="10dp"
+
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/signIn_box_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

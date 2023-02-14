@@ -50,10 +50,10 @@
         android:background="@drawable/box_round_edge_container_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/space"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/email_et"
@@ -108,28 +108,42 @@
         app:layout_constraintEnd_toEndOf="@+id/pass_et"
         app:layout_constraintTop_toBottomOf="@+id/pass_et" />
 
-    <TextView
-        android:id="@+id/forgotPass_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Forgot Password?"
-        android:textColor="@color/ocean_blue"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/pass_et"
-        app:layout_constraintTop_toBottomOf="@+id/pass_et" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/forgotPass_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:text="Forgot Password?"-->
+    <!--        android:textColor="@color/ocean_blue"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/pass_et"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/pass_et" />-->
 
     <Button
         android:id="@+id/SignUpss_btn"
         android:layout_width="200dp"
         android:layout_height="55dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_shape"
         android:text="Sign in"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/forgotPass_tv"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPass_tv" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/pass_et"
+        app:layout_constraintStart_toStartOf="@+id/pass_et"
+        app:layout_constraintTop_toBottomOf="@+id/pass_et" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messenger"
+        android:textColor="@color/ocean_blue"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/signUp_box_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,7 +68,8 @@
              android:layout_marginBottom="8dp"
 
              android:text="test_username"
-             android:textSize="30sp"
+             android:textSize="26sp"
+             android:textStyle="bold"
              app:layout_constraintBottom_toTopOf="@+id/Qr_code_box"
              app:layout_constraintEnd_toEndOf="@+id/Qr_code_box"
              app:layout_constraintStart_toStartOf="@+id/Qr_code_box" />

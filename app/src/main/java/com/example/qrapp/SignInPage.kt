@@ -35,7 +35,6 @@ class SignInPage : AppCompatActivity() {
         val container_img = findViewById<ImageView>(R.id.signIn_box_img)
         val et_email = findViewById<EditText>(R.id.email_et)
         val et_pass = findViewById<EditText>(R.id.pass_et)
-        val forgot_tv = findViewById<TextView>(R.id.forgotPass_tv)
         val log_btn = findViewById<Button>(R.id.login_btn)
 
         email_error_tv = findViewById(R.id.email_error_tv)
@@ -48,7 +47,6 @@ class SignInPage : AppCompatActivity() {
         container_img.startAnimation(bottom_anim)
         et_email.startAnimation(bottom_anim)
         et_pass.startAnimation(bottom_anim)
-        forgot_tv.startAnimation(bottom_anim)
         log_btn.startAnimation(bottom_anim)
 
         val backToStartPage = findViewById<Button>(R.id.back_btn)
