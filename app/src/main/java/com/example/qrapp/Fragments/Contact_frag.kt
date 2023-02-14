@@ -44,7 +44,7 @@ class Contact_frag : Fragment() {
         vRecycle.adapter = vAdapter
 
 
-        dbRef.child("Users").addValueEventListener(object : ValueEventListener {
+        dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear() //to clear data and not append it when new user enters
                 for (postSnapShot in snapshot.children){

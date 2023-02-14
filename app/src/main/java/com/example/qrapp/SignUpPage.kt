@@ -162,7 +162,7 @@ class SignUpPage : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference()
 
         //child is used to create node (Note to myself)
-        dbRef.child("Users").child(uid).setValue(User(name,username,email,uid,userImg))
+        dbRef.child("Users").child("userInfo").child(uid).setValue(User(name,username,email,uid,userImg))
 
     }
 

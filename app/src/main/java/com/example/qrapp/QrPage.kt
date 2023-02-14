@@ -36,7 +36,7 @@ class QrPage : AppCompatActivity() {
         val qrUsername = findViewById<TextView>(R.id.usernameID_tv)
 
         //test qrprof
-        dbRef.child("Users").addValueEventListener(object : ValueEventListener {
+        dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (postSnapShot in snapshot.children){
                     val currentUsers = postSnapShot.getValue(User::class.java)

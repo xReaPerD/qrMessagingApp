@@ -13,7 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/ocean_blue</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/source_sans_pro_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_reg</item>
     </style>
 
     <style name="Theme1" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -29,7 +29,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/ocean_blue</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/source_sans_pro_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_reg</item>
     </style>
 
     <style name="Theme2" parent="Theme.AppCompat.Light.NoActionBar">
@@ -44,7 +44,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/ocean_blue</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/source_sans_pro_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_reg</item>
     </style>
 
     <style name="SignUp_Page" parent="Theme.AppCompat.Light.NoActionBar">
@@ -60,7 +60,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/skyWhyBlue</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/source_sans_pro_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_reg</item>
     </style>
 
 </resources>

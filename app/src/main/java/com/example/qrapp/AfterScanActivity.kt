@@ -46,13 +46,12 @@ class AfterScanActivity : AppCompatActivity() {
 
          //display uid
 
-        dbRef.child("Users").addValueEventListener(object : ValueEventListener {
+        dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (postSnapShot in snapshot.children){
                     val presentUsers = postSnapShot.getValue(User::class.java)
                     if (testText == presentUsers!!.uid){
-                        imgUri = Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser)
-                            .toString()
+                        imgUri = Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser).toString()
                         testiTV.text = presentUsers.name
 
                     }

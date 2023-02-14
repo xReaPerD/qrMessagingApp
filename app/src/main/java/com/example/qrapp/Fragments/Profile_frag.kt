@@ -81,7 +81,7 @@ class Profile_frag : Fragment() {
         val imgDataReference = FirebaseDatabase.getInstance().getReference("Users")
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
-        dbRef.child("Users").addValueEventListener(object : ValueEventListener{
+        dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (postSnapShot in snapshot.children){
                     val currentUsers = postSnapShot.getValue(User::class.java)
@@ -98,7 +98,7 @@ class Profile_frag : Fragment() {
             }
         })
 
-        imgDataReference.child(userId).get()
+        imgDataReference.child("userInfo").child(userId).get()
             .addOnSuccessListener {
                 val url = it.child("userImg").value.toString()
                 Glide.with(this).load(url).into(userProf)
