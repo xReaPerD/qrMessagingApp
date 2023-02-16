@@ -50,12 +50,12 @@ class SignInPage : AppCompatActivity() {
         log_btn.startAnimation(bottom_anim)
 
         val backToStartPage = findViewById<Button>(R.id.back_btn)
-        val signInBackground = findViewById<ConstraintLayout>(R.id.signIn_back)
-
-        val animatedBack:AnimationDrawable = signInBackground.background as AnimationDrawable
-        animatedBack.setEnterFadeDuration(2000)
-        animatedBack.setExitFadeDuration(3000)
-        animatedBack.start()
+//        val signInBackground = findViewById<ConstraintLayout>(R.id.signIn_back)
+//
+//        val animatedBack:AnimationDrawable = signInBackground.background as AnimationDrawable
+//        animatedBack.setEnterFadeDuration(2000)
+//        animatedBack.setExitFadeDuration(3000)
+//        animatedBack.start()
 
         val toStartPage = Intent(this,MainActivity::class.java)
 
