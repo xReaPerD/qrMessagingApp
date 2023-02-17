@@ -4,8 +4,8 @@
         <shape
             android:shape="rectangle">
             <corners
-                android:bottomLeftRadius="65dp"
-                android:bottomRightRadius="65dp"/>
+                android:bottomLeftRadius="50dp"
+                android:bottomRightRadius="50dp"/>
             <solid
                 android:color="@color/ocean_blue"/>
         </shape>

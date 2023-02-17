@@ -16,13 +16,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
-import com.example.qrapp.DataFile.MessageFile
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.MainActivity
-import com.example.qrapp.Profile_edit
 import com.example.qrapp.QrPage
 import com.example.qrapp.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -35,7 +32,6 @@ class Profile_frag : Fragment() {
 
     private lateinit var dropBelowButton : Button
     private lateinit var logOut_fab : Button
-    private lateinit var to_edit_mode : Button
     private lateinit var toQrCodePage : Button
 
     private lateinit var title_name : TextView
@@ -58,7 +54,6 @@ class Profile_frag : Fragment() {
         val view =inflater.inflate(R.layout.fragment_profile_frag, container, false)
         dropBelowButton = view.findViewById(R.id.three_dot_fab)
         logOut_fab = view.findViewById(R.id.log_out_fab)
-        to_edit_mode = view.findViewById(R.id.to_edit_mode_btn)
         toQrCodePage = view.findViewById(R.id.qrCodeButton)
 
         title_name = view.findViewById(R.id.username_title_tv)
@@ -104,15 +99,12 @@ class Profile_frag : Fragment() {
                 Glide.with(this).load(url).into(userProf)
         }
 
-        val move_to_edit_mode = Intent(activity,Profile_edit::class.java)
 
         dropBelowButton.setOnClickListener {
             onDropButtonClick()
         }
 
-        to_edit_mode.setOnClickListener {
-            startActivity(move_to_edit_mode)
-        }
+
 
         toQrCodePage.setOnClickListener {
             val to_qr_Page = Intent(activity,QrPage::class.java)
@@ -144,22 +136,18 @@ class Profile_frag : Fragment() {
     }
     private fun setVisibility(clicked:Boolean){
         if(!clicked){
-            to_edit_mode.visibility = View.VISIBLE
             logOut_fab.visibility = View.VISIBLE
             toQrCodePage.visibility = View.VISIBLE
         }else{
-            to_edit_mode.visibility = View.INVISIBLE
             logOut_fab.visibility = View.INVISIBLE
             toQrCodePage.visibility = View.INVISIBLE
         }
     }
     private fun setAnimation(clicked: Boolean){
         if (!clicked){
-            to_edit_mode.startAnimation(fromTop)
             logOut_fab.startAnimation(fromTop)
             toQrCodePage.startAnimation(fromTop)
         }else{
-            to_edit_mode.startAnimation(toTop)
             logOut_fab.startAnimation(toTop)
             toQrCodePage.startAnimation(toTop)
         }

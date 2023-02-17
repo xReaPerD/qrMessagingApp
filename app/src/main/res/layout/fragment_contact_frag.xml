@@ -8,56 +8,49 @@
     android:background="@color/white"
     >
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+
+        <ImageView
+            android:id="@+id/blue_box_drop_container"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:id="@+id/titleHolder"
-            app:cardElevation="10dp"
+            android:layout_height="70dp"
+            android:background="@drawable/small_drop_box"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/ocean_blue"
-                >
-
-                <TextView
-                    android:id="@+id/lay_tt_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:text="Contacts"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/blue_box_drop_container"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:text="Contacts"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/blue_box_drop_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/blue_box_drop_container" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/contacts_scroller_rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
 
-            android:layout_below="@+id/titleHolder"
-            android:layout_alignParentStart="true"
+
+            android:layout_below="@+id/blue_box_drop_container"
 
 
-            android:layout_alignParentEnd="true"
-
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blue_box_drop_container"
+            tools:layout_editor_absoluteX="16dp"
             tools:listitem="@layout/chat_card" />
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
