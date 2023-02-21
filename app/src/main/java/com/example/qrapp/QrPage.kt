@@ -1,11 +1,13 @@
 package com.example.qrapp
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 
 import android.widget.TextView
@@ -24,6 +26,8 @@ class QrPage : AppCompatActivity() {
 
     private lateinit var mAuth : FirebaseAuth
     private lateinit var dbRef: DatabaseReference
+    private lateinit var backbtn: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_page)
@@ -34,6 +38,12 @@ class QrPage : AppCompatActivity() {
         val qrBackBox = findViewById<ConstraintLayout>(R.id.qrBackBox)
         val qrShowProf = findViewById<ImageView>(R.id.userOwnProf)
         val qrUsername = findViewById<TextView>(R.id.usernameID_tv)
+        backbtn = findViewById(R.id.back_btn)
+
+        backbtn.setOnClickListener {
+            val toMainChatPage = Intent(this,MainChatPage::class.java)
+            startActivity(toMainChatPage)
+        }
 
         //test qrprof
         dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener {

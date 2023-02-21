@@ -12,5 +12,6 @@
     <color name="red">#951515</color>
     <color name="skyWhyBlue">#99E1F6</color>
     <color name="offBlack">#101010</color>
+    <color name="matteBlack">#222020</color>
 
 </resources>

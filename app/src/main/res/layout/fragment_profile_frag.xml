@@ -122,7 +122,7 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/et_box_design"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/matteBlack"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/username_tt_name_tv"
             app:layout_constraintTop_toBottomOf="@+id/username_tt_name_tv" />
@@ -149,7 +149,7 @@
             android:background="@drawable/et_box_design"
 
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/matteBlack"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/email_tt_name_tv"
             app:layout_constraintTop_toBottomOf="@+id/email_tt_name_tv" />
