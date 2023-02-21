@@ -15,9 +15,10 @@
             android:id="@+id/person_id_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="128dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="100dp"
             android:text=""
-            android:textColor="@color/offBlack"
+            android:textColor="@color/matteBlack"
             android:textSize="17sp"
 
             android:textStyle="bold"
@@ -26,24 +27,24 @@
             app:layout_constraintStart_toEndOf="@+id/cardView4"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/chat_receive_show_tv"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=""-->
-<!--            android:textSize="10sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/cardView4"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/person_id_tv"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/person_id_tv" />-->
-<!--        <TextView-->
-<!--            android:id="@+id/chat_sent_show_tv"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=""-->
-<!--            android:textSize="10sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/cardView4"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/person_id_tv"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/person_id_tv" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/chat_receive_show_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text=""-->
+        <!--            android:textSize="10sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/cardView4"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/person_id_tv"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/person_id_tv" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/chat_sent_show_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text=""-->
+        <!--            android:textSize="10sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/cardView4"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/person_id_tv"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/person_id_tv" />-->
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
@@ -64,7 +65,6 @@
                 tools:layout_editor_absoluteX="-8dp"
                 tools:layout_editor_absoluteY="15dp" />
         </androidx.cardview.widget.CardView>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
