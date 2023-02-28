@@ -62,5 +62,15 @@
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/sf_pro_reg</item>
     </style>
+    
+    <style name="LoadingScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/ocean_blue</item>
+    </style>
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.qrapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.qrapp.DataFile.LoadingDialogClass
 import com.example.qrapp.Fragments.Contact_frag
 import com.example.qrapp.Fragments.Profile_frag
 import com.example.qrapp.Fragments.Settings_Frags
@@ -33,7 +35,14 @@ class MainChatPage : AppCompatActivity() {
         setContentView(R.layout.activity_main_chat_page)
         replaceFragment(mainChat)
 //_______________________________________________________________________________
-
+        val loading = LoadingDialogClass(this)
+        loading.startLoading()
+        val handler = Handler()
+        handler.postDelayed(object :Runnable{
+            override fun run() {
+                loading.isDismiss()
+            }
+        },3000)
 //_______________________________________________________________________________
         val bottom_anim = AnimationUtils.loadAnimation(this,R.anim.bottom_anim)
 
