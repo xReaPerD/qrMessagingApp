@@ -112,6 +112,7 @@ class MainChatPage : AppCompatActivity() {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, "sssuccues", Toast.LENGTH_LONG).show()
+                // to ScanPage
                 val toScanPage = Intent(this,AfterScanActivity::class.java)
                 toScanPage.putExtra("checkQR",result.contents)
                 startActivity(toScanPage)

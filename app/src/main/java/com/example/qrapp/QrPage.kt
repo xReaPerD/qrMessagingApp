@@ -28,6 +28,7 @@ class QrPage : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
     private lateinit var backbtn: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_page)

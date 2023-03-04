@@ -30,6 +30,11 @@ class AfterScanActivity : AppCompatActivity() {
     private lateinit var dbRef : DatabaseReference
     private lateinit var mAuth : FirebaseAuth
 
+    private lateinit var uidString : String
+    private lateinit var imageString : String
+    private lateinit var nameString: String
+    private lateinit var usernameString : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_after_scan)
@@ -53,6 +58,12 @@ class AfterScanActivity : AppCompatActivity() {
                     if (testText == presentUsers!!.uid){
                         imgUri = Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser).toString()
                         testiTV.text = presentUsers.name
+
+                        uidString = presentUsers.uid.toString()
+                        nameString = presentUsers.name.toString()
+                        usernameString = presentUsers.username.toString()
+                        imageString = presentUsers.userImg.toString()
+                        //.....working--------------------------------------
 
                     }
                 }
