@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
+import com.example.qrapp.DataFile.Contacts
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.Fragments.Contact_frag
 import com.google.firebase.auth.FirebaseAuth
@@ -42,6 +43,8 @@ class AfterScanActivity : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference()
         mAuth = FirebaseAuth.getInstance()
 
+        val contactDetailRef = dbRef.child("ContactList") //new node
+
         testiTV = findViewById(R.id.textView)
         showScannedUser = findViewById(R.id.showScannedUser_img)
         addToContactBtn = findViewById(R.id.button2)
@@ -58,13 +61,6 @@ class AfterScanActivity : AppCompatActivity() {
                     if (testText == presentUsers!!.uid){
                         imgUri = Glide.with(this@AfterScanActivity).load(presentUsers.userImg).into(showScannedUser).toString()
                         testiTV.text = presentUsers.name
-
-                        uidString = presentUsers.uid.toString()
-                        nameString = presentUsers.name.toString()
-                        usernameString = presentUsers.username.toString()
-                        imageString = presentUsers.userImg.toString()
-                        //.....working--------------------------------------
-
                     }
                 }
             }
@@ -76,10 +72,29 @@ class AfterScanActivity : AppCompatActivity() {
         })
 
         addToContactBtn.setOnClickListener {
-//            val contacts = testiTV.text.toString()
-//            val conID = Contacts(contacts)
-//            dbRef.child("Contacts").child("contactIDs").child(mAuth.currentUser!!.uid).push()
-//                .setValue(conID)
+
+            dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (postSnapShot in snapshot.children){
+                        val addUsersInfo = postSnapShot.getValue(User::class.java)
+                        if (testText == addUsersInfo!!.uid){
+                            uidString = addUsersInfo!!.uid.toString()
+                            nameString = addUsersInfo.name.toString()
+                            usernameString = addUsersInfo.username.toString()
+                            imageString = addUsersInfo.userImg.toString()
+
+                            contactDetailRef.child("contactInfo").child(mAuth.currentUser!!.uid).child(uidString).setValue(Contacts(nameString,usernameString,uidString,imageString)) // success
+                        }
+                    }
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+
+            })
             val toMainChatActivity = Intent(this,MainChatPage::class.java)
             startActivity(toMainChatActivity)
 

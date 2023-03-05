@@ -10,11 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.qrapp.DataFile.Contacts
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.Fragments.Profile_frag
 import com.example.qrapp.R
 
-class Contact_RecyclerView(val context: Context?, val userList: ArrayList<User>):RecyclerView.Adapter<Contact_RecyclerView.MyViewHolder>() {
+class Contact_RecyclerView(val context: Context?, val contactList: ArrayList<Contacts>):RecyclerView.Adapter<Contact_RecyclerView.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -24,16 +25,15 @@ class Contact_RecyclerView(val context: Context?, val userList: ArrayList<User>)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentUser = userList[position]
+        val currentUser = contactList[position]
 
-        Glide.with(context!!).load(userList[position].userImg).into(holder.personProfImg)
-
+        Glide.with(context!!).load(contactList[position].userImg).into(holder.personProfImg)
         holder.personName.text = currentUser.name
 
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return contactList.size
     }
     class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val personName = itemView.findViewById<TextView>(R.id.person_id_tv)

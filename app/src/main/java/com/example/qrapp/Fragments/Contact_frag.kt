@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.Adapter.Contact_RecyclerView
+import com.example.qrapp.DataFile.Contacts
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +19,7 @@ class Contact_frag : Fragment() {
 
     private lateinit var vRecycle: RecyclerView
     private lateinit var vAdapter: Contact_RecyclerView
-    private lateinit var userList:ArrayList<User>
+    private lateinit var contactList:ArrayList<Contacts>
 
     private lateinit var dbRef: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
@@ -35,22 +36,22 @@ class Contact_frag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userList = ArrayList()
+        contactList = ArrayList()
         dbRef = FirebaseDatabase.getInstance().getReference()
         mAuth = FirebaseAuth.getInstance()
 
-        vAdapter = Contact_RecyclerView(context,userList)
+        vAdapter = Contact_RecyclerView(context,contactList)
         vRecycle.layoutManager = LinearLayoutManager(activity)
         vRecycle.adapter = vAdapter
 
 
-        dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener {
+        dbRef.child("ContactList").child("contactInfo").child(mAuth.currentUser!!.uid).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                userList.clear() //to clear data and not append it when new user enters
+                contactList.clear() //to clear data and not append it when new user enters
                 for (postSnapShot in snapshot.children){
-                    val currentUsers = postSnapShot.getValue(User::class.java)
+                    val currentUsers = postSnapShot.getValue(Contacts::class.java)
                     if(mAuth.currentUser?.uid != currentUsers?.uid) {
-                        userList.add(currentUsers!!)
+                        contactList.add(currentUsers!!)
                     }
                 }
                 vAdapter.notifyDataSetChanged()
