@@ -49,9 +49,9 @@ class chat_main_frag : Fragment() {
         val chatDrawer = view.findViewById<ImageView>(R.id.chat_container_img)
         val drawerTitle = view.findViewById<TextView>(R.id.textViewT)
 
-        val currDay = Calendar.getInstance()
-        val showDays:String? = currDay.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.getDefault())
-        drawerTitle.text = showDays
+//        val currDay = Calendar.getInstance()
+//        val showDays:String? = currDay.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.getDefault())
+//        drawerTitle.text = showDays
 
         chatDrawer.startAnimation(bottomAnim)
         drawerTitle.startAnimation(bottomAnim)
