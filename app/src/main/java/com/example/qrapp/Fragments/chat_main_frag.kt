@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.Adapter.Chat_vertical_RecyclerVie
 import com.example.qrapp.Adapter.Horizontal_RecyclerView
 import com.example.qrapp.DataFile.Contacts
-import com.example.qrapp.DataFile.User
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 
