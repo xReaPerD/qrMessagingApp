@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qrapp.Adapter.Chat_vertical_RecyclerVie
 import com.example.qrapp.Adapter.Horizontal_RecyclerView
+import com.example.qrapp.DataFile.Contacts
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +27,7 @@ class chat_main_frag : Fragment() {
     private lateinit var adapter: Horizontal_RecyclerView
 
     private lateinit var userList:ArrayList<User>
+    private lateinit var contactList:ArrayList<Contacts>
 
     private lateinit var dbRef:DatabaseReference
     private lateinit var mAuth:FirebaseAuth
@@ -66,9 +68,10 @@ class chat_main_frag : Fragment() {
         dbRef = FirebaseDatabase.getInstance().getReference()
         mAuth = FirebaseAuth.getInstance()
         userList = ArrayList()
+        contactList = ArrayList()
 
 
-        adapter = Horizontal_RecyclerView(context,userList)
+        adapter = Horizontal_RecyclerView(context,contactList)
         vAdapter = Chat_vertical_RecyclerVie(context,userList)
 
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
@@ -89,7 +92,7 @@ class chat_main_frag : Fragment() {
                         userList.add(currentUsers!!)
                     }
                 }
-                adapter.notifyDataSetChanged()
+//                adapter.notifyDataSetChanged()
                 vAdapter.notifyDataSetChanged()
             }
 
@@ -97,6 +100,22 @@ class chat_main_frag : Fragment() {
 
             }
 
+        })
+        dbRef.child("ContactList").child("contactInfo").child(mAuth.currentUser!!.uid).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                contactList.clear() //to clear data and not append it when new user enters
+                for (postSnapShot in snapshot.children){
+                    val currentUsers = postSnapShot.getValue(Contacts::class.java)
+                    if(mAuth.currentUser?.uid != currentUsers?.uid) {
+                        contactList.add(currentUsers!!)
+                    }
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
         })
     }
 
