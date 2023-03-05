@@ -26,7 +26,6 @@ class chat_main_frag : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: Horizontal_RecyclerView
 
-    private lateinit var userList:ArrayList<User>
     private lateinit var contactList:ArrayList<Contacts>
 
     private lateinit var dbRef:DatabaseReference
@@ -67,12 +66,12 @@ class chat_main_frag : Fragment() {
 
         dbRef = FirebaseDatabase.getInstance().getReference()
         mAuth = FirebaseAuth.getInstance()
-        userList = ArrayList()
+
         contactList = ArrayList()
 
 
         adapter = Horizontal_RecyclerView(context,contactList)
-        vAdapter = Chat_vertical_RecyclerVie(context,userList)
+        vAdapter = Chat_vertical_RecyclerVie(context,contactList)
 
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         vRecycle.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
@@ -81,26 +80,6 @@ class chat_main_frag : Fragment() {
         vRecycle.adapter = vAdapter
 
 
-
-        dbRef.child("Users").child("userInfo").addValueEventListener(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                userList.clear() //to clear data and not append it when new user enters
-                for (postSnapShot in snapshot.children){
-                    val currentUsers = postSnapShot.getValue(User::class.java)
-
-                    if(mAuth.currentUser?.uid != currentUsers?.uid){
-                        userList.add(currentUsers!!)
-                    }
-                }
-//                adapter.notifyDataSetChanged()
-                vAdapter.notifyDataSetChanged()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
         dbRef.child("ContactList").child("contactInfo").child(mAuth.currentUser!!.uid).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 contactList.clear() //to clear data and not append it when new user enters
@@ -111,6 +90,7 @@ class chat_main_frag : Fragment() {
                     }
                 }
                 adapter.notifyDataSetChanged()
+                vAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
