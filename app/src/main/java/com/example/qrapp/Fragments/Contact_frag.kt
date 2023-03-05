@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +34,13 @@ class Contact_frag : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_contact_frag, container, false)
         vRecycle = view.findViewById(R.id.contacts_scroller_rv)
+        val blueBox = view.findViewById<ImageView>(R.id.blue_box_drop_container)
+        val titleText = view.findViewById<TextView>(R.id.titleName)
+
+        val topAnim = AnimationUtils.loadAnimation(context,R.anim.top_anim)
+        blueBox.startAnimation(topAnim)
+        titleText.startAnimation(topAnim)
+
         return view
     }
 
