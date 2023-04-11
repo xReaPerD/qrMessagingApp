@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.Contacts
 import com.example.qrapp.DataFile.User
 import com.example.qrapp.Fragments.Profile_frag
+import com.example.qrapp.MessageActivity
 import com.example.qrapp.R
 
 class Contact_RecyclerView(val context: Context?, val contactList: ArrayList<Contacts>):RecyclerView.Adapter<Contact_RecyclerView.MyViewHolder>() {
@@ -29,6 +30,13 @@ class Contact_RecyclerView(val context: Context?, val contactList: ArrayList<Con
 
         Glide.with(context!!).load(contactList[position].userImg).into(holder.personProfImg)
         holder.personName.text = currentUser.name
+        holder.itemView.setOnClickListener {
+            val toMessageActivity = Intent(context,MessageActivity::class.java)
+            toMessageActivity.putExtra("Name",currentUser.name)
+            toMessageActivity.putExtra("uid", currentUser.uid)
+            toMessageActivity.putExtra("image",currentUser.userImg)
+            context.startActivity(toMessageActivity)
+        }
 
     }
 
