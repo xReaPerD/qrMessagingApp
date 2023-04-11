@@ -31,10 +31,10 @@
             android:id="@+id/qrCodeButton"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/add_btn_shape"
             android:drawableLeft="@drawable/_qr_code_24"
             android:paddingLeft="12dp"
-            android:layout_marginTop="10dp"
 
             android:visibility="invisible"
 
@@ -83,21 +83,43 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/profile_pic_cv"
-            android:background="@color/matteBlack"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginTop="20dp"
+            android:background="@color/matteBlack"
             app:cardCornerRadius="50dp"
             app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="@+id/username_title_tv"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="@+id/username_title_tv"
             app:layout_constraintTop_toBottomOf="@+id/username_title_tv">
-                        <ImageView
-                            android:id="@+id/C_user_prof_img"
-                            android:scaleType="centerCrop"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/C_user_prof_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/addPicIMG"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="35dp"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/add_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/C_user_prof_img"
+                    app:layout_constraintStart_toStartOf="@+id/C_user_prof_img"
+                    app:layout_constraintTop_toTopOf="@+id/C_user_prof_img" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <TextView
