@@ -39,6 +39,7 @@ class Profile_frag : Fragment() {
     private lateinit var email_tv : TextView
     private lateinit var userProf : ImageView
     private lateinit var blueDrop : ImageView
+    private lateinit var changeProf : Button
 
     private lateinit var mAuth:FirebaseAuth
     private lateinit var dbRef: DatabaseReference
@@ -61,7 +62,10 @@ class Profile_frag : Fragment() {
         email_tv = view.findViewById(R.id.user_email_tv)
         userProf = view.findViewById(R.id.C_user_prof_img)
         blueDrop = view.findViewById(R.id.blue_box_drop_container)
+
         val userCV = view.findViewById<CardView>(R.id.profile_pic_cv)
+
+        changeProf = view.findViewById(R.id.addPicIMG) // Change/ overwrite existing(user image) image
 
         val top_anim = AnimationUtils.loadAnimation(context,R.anim.top_anim)
         blueDrop.startAnimation(top_anim)

@@ -79,6 +79,7 @@
              android:layout_marginBottom="8dp"
 
              android:text="test_username"
+             android:textColor="@color/matteBlack"
              android:textSize="26sp"
              android:textStyle="bold"
              app:layout_constraintBottom_toTopOf="@+id/Qr_code_box"
@@ -90,5 +91,20 @@
 
 
    </androidx.cardview.widget.CardView>
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="FriendConnect"
+       android:textColor="@color/white"
+       android:textSize="26sp"
+
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="@+id/QrBox"
+       app:layout_constraintHorizontal_bias="0.493"
+       app:layout_constraintStart_toStartOf="@+id/QrBox"
+       app:layout_constraintTop_toBottomOf="@+id/QrBox"
+       app:layout_constraintVertical_bias="0.831" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
