@@ -17,6 +17,9 @@
         android:theme="@style/Theme.QrApp"
         tools:targetApi="31">
         <activity
+            android:name=".aboutApp"
+            android:exported="false" />
+        <activity
             android:name=".AfterScanActivity"
             android:exported="false">
             <meta-data
@@ -44,7 +47,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".MainChatPage"
             android:exported="false"
