@@ -14,11 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.qrapp.Adapter.MessageAdapter
 import com.example.qrapp.DataFile.MessageFile
-import com.example.qrapp.DataFile.User
-import com.example.qrapp.Fragments.chat_main_frag
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
+
 
 class MessageActivity : AppCompatActivity() {
 

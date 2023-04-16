@@ -9,7 +9,7 @@ class LoadingDialogClass(val mActivity:Activity) {
     fun startLoading(){
         val inflater = mActivity.layoutInflater
         val layoutView = inflater.inflate(R.layout.loading_screen,null)
-// to be worked
+
         val progressBar = AlertDialog.Builder(mActivity,R.style.LoadingScreen)
         progressBar.setView(layoutView)
         progressBar.setCancelable(false)

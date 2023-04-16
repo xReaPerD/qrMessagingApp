@@ -13,6 +13,5 @@ class Contacts {
         this.username = username
         this.uid = uid
         this.userImg = userImg
-
     }
 }

@@ -35,7 +35,6 @@ class Chat_vertical_RecyclerVie(val context: Context?, val contactList: ArrayLis
 
             context.startActivity(toMessageActivity)
         }
-
     }
 
     override fun getItemCount(): Int {

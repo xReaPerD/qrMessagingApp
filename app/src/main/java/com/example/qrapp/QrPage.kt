@@ -67,12 +67,10 @@ class QrPage : AppCompatActivity() {
         animatedBack.setExitFadeDuration(2000)
         animatedBack.start()
 
-
         val url = mAuth.currentUser!!.uid //work in progress
         val contentView = findViewById<ImageView>(R.id.Qr_code_box)
         val bitmap = generateQrCode(url)
         contentView.setImageBitmap(bitmap)
-
     }
     private fun generateQrCode(url:String):Bitmap{
         val width = 300

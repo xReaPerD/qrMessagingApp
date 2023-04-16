@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+
 import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.Contacts
 import com.example.qrapp.DataFile.User

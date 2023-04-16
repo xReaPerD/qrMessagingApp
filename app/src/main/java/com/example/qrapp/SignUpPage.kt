@@ -190,5 +190,4 @@ class SignUpPage : AppCompatActivity() {
         }
     }
 
-
 }

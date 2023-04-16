@@ -44,5 +44,4 @@ class Horizontal_RecyclerView(val context: Context?, val contactList: ArrayList<
         val profileImg = itemView.findViewById<ImageView>(R.id.person_pic_img)
 
     }
-
 }

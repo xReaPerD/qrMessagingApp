@@ -96,5 +96,4 @@ class chat_main_frag : Fragment() {
             }
         })
     }
-
 }

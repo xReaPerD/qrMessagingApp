@@ -78,8 +78,7 @@ class MainChatPage : AppCompatActivity() {
                 intentIntegrator.setBarcodeImageEnabled(true)
                 intentIntegrator.initiateScan()
 
-//                val toScanPage = Intent(this,AfterScanActivity::class.java)
-//                startActivity(toScanPage)
+
             }
 
         }

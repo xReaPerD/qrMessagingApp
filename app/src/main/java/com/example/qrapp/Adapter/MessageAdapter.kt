@@ -10,8 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.qrapp.DataFile.MessageFile
-import com.example.qrapp.Fragments.chat_main_frag
-import com.example.qrapp.MessageActivity
+
 import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
 

@@ -16,5 +16,4 @@ class User {
         this.uid = uid
         this.userImg = userImg
     }
-
 }
