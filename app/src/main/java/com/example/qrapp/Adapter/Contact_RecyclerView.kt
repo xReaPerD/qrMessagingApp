@@ -2,7 +2,6 @@ package com.example.qrapp.Adapter
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.qrapp.DataFile.Contacts
-
 import com.example.qrapp.MessageActivity
 import com.example.qrapp.R
 

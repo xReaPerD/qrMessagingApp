@@ -4,17 +4,14 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
-
 import android.widget.TextView
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
-
 import com.example.qrapp.DataFile.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
