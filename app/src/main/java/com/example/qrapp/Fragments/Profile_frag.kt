@@ -68,18 +68,18 @@ class Profile_frag : Fragment() {
 
         val userCV = view.findViewById<CardView>(R.id.profile_pic_cv)
 
-        changeProf = view.findViewById(R.id.addPicIMG) // Change/ overwrite existing(user image) image
-        changeProf.setOnClickListener {
-//            val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
-//            reference.putFile(selectedImg).addOnCompleteListener {
-//            if (it.isSuccessful){
-//                reference.downloadUrl.addOnSuccessListener { task ->
-////                    uploadInfo(task.toString())
-////                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,task.toString())
-//                }
-//            }
-            Toast.makeText(context,"Feature Disabled ",Toast.LENGTH_SHORT).show()
-        }
+//        changeProf = view.findViewById(R.id.addPicIMG) // Change/ overwrite existing(user image) image
+//        changeProf.setOnClickListener {
+////            val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
+////            reference.putFile(selectedImg).addOnCompleteListener {
+////            if (it.isSuccessful){
+////                reference.downloadUrl.addOnSuccessListener { task ->
+//////                    uploadInfo(task.toString())
+//////                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,task.toString())
+////                }
+////            }
+//            Toast.makeText(context,"Feature Disabled ",Toast.LENGTH_SHORT).show()
+//        }
 //
 
         val top_anim = AnimationUtils.loadAnimation(context,R.anim.top_anim)
