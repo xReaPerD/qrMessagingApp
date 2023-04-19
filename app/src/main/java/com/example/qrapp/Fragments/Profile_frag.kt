@@ -70,14 +70,7 @@ class Profile_frag : Fragment() {
 
 //        changeProf = view.findViewById(R.id.addPicIMG) // Change/ overwrite existing(user image) image
 //        changeProf.setOnClickListener {
-////            val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
-////            reference.putFile(selectedImg).addOnCompleteListener {
-////            if (it.isSuccessful){
-////                reference.downloadUrl.addOnSuccessListener { task ->
-//////                    uploadInfo(task.toString())
-//////                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,task.toString())
-////                }
-////            }
+////
 //            Toast.makeText(context,"Feature Disabled ",Toast.LENGTH_SHORT).show()
 //        }
 //
