@@ -2,6 +2,7 @@ package com.example.qrapp.Fragments
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
@@ -23,6 +24,7 @@ import com.example.qrapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
+import java.util.Date
 
 
 class Profile_frag : Fragment() {
@@ -40,6 +42,7 @@ class Profile_frag : Fragment() {
     private lateinit var userProf : ImageView
     private lateinit var blueDrop : ImageView
     private lateinit var changeProf : Button
+    private lateinit var selectedImg : Uri
 
     private lateinit var mAuth:FirebaseAuth
     private lateinit var dbRef: DatabaseReference
@@ -66,6 +69,18 @@ class Profile_frag : Fragment() {
         val userCV = view.findViewById<CardView>(R.id.profile_pic_cv)
 
         changeProf = view.findViewById(R.id.addPicIMG) // Change/ overwrite existing(user image) image
+        changeProf.setOnClickListener {
+//            val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
+//            reference.putFile(selectedImg).addOnCompleteListener {
+//            if (it.isSuccessful){
+//                reference.downloadUrl.addOnSuccessListener { task ->
+////                    uploadInfo(task.toString())
+////                    addUserToDatabase(name,username,email,mAuth.currentUser?.uid!!,task.toString())
+//                }
+//            }
+            Toast.makeText(context,"Feature Disabled ",Toast.LENGTH_SHORT).show()
+        }
+//
 
         val top_anim = AnimationUtils.loadAnimation(context,R.anim.top_anim)
         blueDrop.startAnimation(top_anim)
@@ -79,6 +94,7 @@ class Profile_frag : Fragment() {
 
         val imgDataReference = FirebaseDatabase.getInstance().getReference("Users")
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        val reference = mStorage.reference.child("User_Profile").child(Date().time.toString())
 
         dbRef.child("Users").child("userInfo").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -103,6 +119,13 @@ class Profile_frag : Fragment() {
                 Glide.with(this).load(url).into(userProf)
         }
 
+//        reference.putFile(selectedImg).addOnCompleteListener{
+//            if (it.isSuccessful){
+//                reference.downloadUrl.addOnCompleteListener {
+//
+//                }
+//            }
+//        }
 
         dropBelowButton.setOnClickListener {
             onDropButtonClick()
@@ -154,6 +177,25 @@ class Profile_frag : Fragment() {
         }else{
             logOut_fab.startAnimation(toTop)
             toQrCodePage.startAnimation(toTop)
+        }
+    }
+// change profile pic
+    private fun selectImage(){
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        startActivityForResult(intent,1)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (data != null){
+            if (data.data != null){
+                selectedImg = data.data!!
+                userProf.setImageURI(selectedImg)
+
+
+            }
         }
     }
 
